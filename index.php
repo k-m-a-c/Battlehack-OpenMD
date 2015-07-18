@@ -14,32 +14,8 @@ $app = new \Slim\Slim();
 
 require('pages/homepage.php');
 
-$app->post(
-  '/api/new/doctor', function() {
-    require('connect.php');
-    global $app;
-		$request = $app->request();
-		$data = $request->params();
-
-    $email = $data['email'];
-    /*
-    $password = $data['password'];
-    $password2 = $data['confirm_password'];
-    $name = $data['name'];
-    $specialty = $data['specialty'];
-    $location = $data['location'];
-    $cpso = $data['cpso'];
-    */
-
-    if (strlen($email) < 1) {
-      $response = array(
-        "response"=>"error", "message"=>"invalid email"
-      );
-      echo json_encode($response);
-      exit;
-    }
-  }
-);
+require('api/doctor.register.php');
+require('api/patient.register.php');
 
 $app->get(
   '/', function() {
@@ -48,6 +24,7 @@ $app->get(
       <input type="text" name="email">
       <input type="submit" value="Submit">
     </form>
+    </html>
 HTML;
   }
 );
