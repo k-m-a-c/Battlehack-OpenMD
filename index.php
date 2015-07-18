@@ -13,7 +13,7 @@ $app_secret = 'e12fb6a2a8eb232cc611';
 
 $app->get(
   '/', function() {
-    echo "Test";
+    echo "Test2";
   }
 );
 
