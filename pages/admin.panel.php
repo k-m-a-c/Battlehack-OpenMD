@@ -65,7 +65,7 @@ HTML;
       }
 
       // using SendGrid's PHP Library - https://github.com/sendgrid/sendgrid-php
-      $sendgrid = new SendGrid($api_user, $api_key);
+      $sendgrid = new SendGrid("app39048283@heroku.com", "5ccsfdcx5919");
       $email    = new SendGrid\Email();
 
       $email->addTo($db_email)
@@ -91,7 +91,7 @@ HTML;
       }
 
       // using SendGrid's PHP Library - https://github.com/sendgrid/sendgrid-php
-      $sendgrid = new SendGrid($api_user, $api_key);
+        $sendgrid = new SendGrid("app39048283@heroku.com", "5ccsfdcx5919");
       $email    = new SendGrid\Email();
 
       $email->addTo($db_email)
