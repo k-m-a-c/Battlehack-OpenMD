@@ -24,7 +24,7 @@ require('api/patient.register.php');
 
 $app->get(
   '/testing', function() {
-    require("BrainTree/BrainTree.php");
+    require("BrainTree/Braintree.php");
     Braintree_Configuration::environment('sandbox');
     Braintree_Configuration::merchantId('b3sf2dmh5t9ff6ry');
     Braintree_Configuration::publicKey('b5g3zbfm4pxyppc8');
