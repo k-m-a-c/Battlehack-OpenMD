@@ -84,7 +84,7 @@ HTML;
     }
   );
 
-  $app->get(
+  $app->post(
     '/admin/login/auth', function() {
       require('connect.php');
       global $app;
