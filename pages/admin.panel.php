@@ -64,16 +64,37 @@ HTML;
         $db_email = $row['email'];
       }
 
-      // using SendGrid's PHP Library - https://github.com/sendgrid/sendgrid-php
-      $sendgrid = new SendGrid("app39048283@heroku.com", "5ccsfdcx5919");
-      $email    = new SendGrid\Email();
+      $url = 'https://api.sendgrid.com/';
 
-      $email->addTo($db_email)
-            ->setFrom("info@openmd.io")
-            ->setSubject("OpenMD has approved your account!")
-            ->setHtml("you can login at: http://openmd.io\nThank you so much for the support");
+      $params = array(
+          'api_user'  => "app39048283@heroku.com",
+          'api_key'   => "5ccsfdcx5919",
+          'to'        => $db_email,
+          'subject'   => 'OpenMD has accepted your application!',
+          'html'      => '<p>Please email back if you need to voice any questions about Open MD.</p>
+          <p>You can go to http://openmd.io and start using the app right away!</p>
+          <p>Thank you, the Open MD team.</p>',
+          'from'      => 'info@openmd.io',
+        );
 
-      $sendgrid->send($email);
+
+      $request =  $url.'api/mail.send.json';
+
+      // Generate curl request
+      $session = curl_init($request);
+      // Tell curl to use HTTP POST
+      curl_setopt ($session, CURLOPT_POST, true);
+      // Tell curl that this is the body of the POST
+      curl_setopt ($session, CURLOPT_POSTFIELDS, $params);
+      // Tell curl not to return headers, but do return the response
+      curl_setopt($session, CURLOPT_HEADER, false);
+      // Tell PHP not to use SSLv3 (instead opting for TLS)
+      curl_setopt($session, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
+      curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+
+      // obtain response
+      $response = curl_exec($session);
+      curl_close($session);
 
       global $app;
       $app->redirect('/admin');
@@ -90,17 +111,36 @@ HTML;
         $db_email = $row['email'];
       }
 
-      // using SendGrid's PHP Library - https://github.com/sendgrid/sendgrid-php
-        $sendgrid = new SendGrid("app39048283@heroku.com", "5ccsfdcx5919");
-      $email    = new SendGrid\Email();
+      $url = 'https://api.sendgrid.com/';
 
-      $email->addTo($db_email)
-            ->setFrom("info@openmd.io")
-            ->setSubject("OpenMD has rejected your account!")
-            ->setHtml("Your account has been rejected.
-            \nPlease reply to this email if you want to voice any concerns.");
+      $params = array(
+          'api_user'  => "app39048283@heroku.com",
+          'api_key'   => "5ccsfdcx5919",
+          'to'        => $db_email,
+          'subject'   => 'OpenMD has rejected your application!',
+          'html'      => '<p>Please email back if you need to voice any concerns about your application.</p>
+          <p>Thank you, the Open MD team.</p>',
+          'from'      => 'info@openmd.io',
+        );
 
-      $sendgrid->send($email);
+
+      $request =  $url.'api/mail.send.json';
+
+      // Generate curl request
+      $session = curl_init($request);
+      // Tell curl to use HTTP POST
+      curl_setopt ($session, CURLOPT_POST, true);
+      // Tell curl that this is the body of the POST
+      curl_setopt ($session, CURLOPT_POSTFIELDS, $params);
+      // Tell curl not to return headers, but do return the response
+      curl_setopt($session, CURLOPT_HEADER, false);
+      // Tell PHP not to use SSLv3 (instead opting for TLS)
+      curl_setopt($session, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
+      curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+
+      // obtain response
+      $response = curl_exec($session);
+      curl_close($session);
 
       global $app;
       $app->redirect('/admin');
