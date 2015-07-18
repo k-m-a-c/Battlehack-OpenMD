@@ -28,6 +28,7 @@ $app->get(
       <h1>Sign Up for a Patient Account</h1>
 
       <div>
+        <div class="alert alert-danger" role="alert"></div>
         <form id="patientRegisterForm" action="/api/new/patient" method="POST">
           <div class="form-group">
             <label for="rpEmail">Email address</label>
@@ -73,8 +74,10 @@ $app->get(
       $('#patientRegisterForm').submit(function() { 
           // submit the form 
           $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, form)  { 
-                console.log('responseText: ' + responseText);
-                console.log('statusText: ' + statusText);
+                var resp = $.parseJSON( responseText );
+                if (resp.response && resp.response == "error") {
+                  $('.alert-danger').text(resp.message).show();
+                }
             } 
           }); 
           // return false to prevent normal browser submit and page navigation 

@@ -30,3 +30,8 @@
 .form-page h1 {
 	margin-bottom: 30px;
 }
+
+.form-page .alert-danger {
+	display: none;
+	font-weight: bold;
+}
