@@ -1,0 +1,32 @@
+/* SPLASH PAGE */
+
+#splash {
+	text-align: center;
+}
+
+#splash h1 {
+	font-size: 10max;
+}
+
+#splash h2 {
+	width: 90%;
+	font-size: 4max;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#splash p {
+	font-size: 3max;
+	margin-top: 30px;
+}
+
+#splash .buttons {
+	margin-top: 30px;
+}
+
+
+/* FORM PAGES */
+
+.form-page h1 {
+	margin-bottom: 30px;
+}

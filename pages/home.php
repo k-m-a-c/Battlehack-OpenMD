@@ -1,7 +1,7 @@
 <?php
 $app->get(
  
-  '/homepage', function() {
+  '/home', function() {
     echo <<<HTML
 <!DOCTYPE html>
 <html lang="en">
