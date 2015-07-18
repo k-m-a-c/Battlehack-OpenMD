@@ -24,11 +24,11 @@ $app->get(
     
  	$nav_template
 
-    <div id="patient-registers" class="form-page">
+    <div id="patient-register" class="form-page">
       <h1 class="col-md-4">Sign Up for a Patient Account</h1>
 
       <div class="col-md-4">
-        <form action="/api/new/patient" method="POST">
+        <form id="patientRegisterForm" action="/api/new/patient" method="POST">
           <div class="form-group">
             <label for="rpEmail">Email address</label>
             <input type="email" class="form-control" id="rmEmail" placeholder="Email" name="email">
@@ -64,6 +64,26 @@ $app->get(
     </div>
 
    $footer_template
+
+
+   <script>
+    $(document).ready(function(){
+      $('#patientRegisterForm').ajaxForm();
+
+      // attach handler to form's submit event 
+      $('#patientRegisterForm').submit(function() { 
+          // submit the form 
+          $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, $form)  { 
+              alert('status: ' + statusText + '\n\nresponseText: \n' + responseText + 
+                  '\n\nThe output div should have already been updated with the responseText.'); 
+            } 
+          }); 
+          // return false to prevent normal browser submit and page navigation 
+          return false; 
+      });
+
+    });
+    </script>
 
   </body>
 </html>
