@@ -28,6 +28,7 @@ $app->get(
       <h1>Sign Up for a Patient Account</h1>
 
       <div>
+        <div class="alert alert-danger" role="alert"></div>
         <form id="patientRegisterForm" action="/api/new/patient" method="POST">
           <div class="form-group">
             <label for="rpName">Name</label>
@@ -69,26 +70,18 @@ $app->get(
     $(document).ready(function(){
       $('#patientRegisterForm').ajaxForm();
 
-      // attach handler to form's submit event
-      $('#patientRegisterForm').submit(function() {
-          // submit the form
-          $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, form)  {
-              alert('status: ' + statusText + '\n\nresponseText: \n' + responseText +
-                  '\n\nThe output div should have already been updated with the responseText.');
-            }
-          });
-          // return false to prevent normal browser submit and page navigation
-          return false;
-      // attach handler to form's submit event
-      $('#patientRegisterForm').submit(function() {
-          // submit the form
-          $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, form)  {
-                console.log('responseText: ' + responseText);
-                console.log('statusText: ' + statusText);
-            }
-          });
-          // return false to prevent normal browser submit and page navigation
-          return false;
+      // attach handler to form's submit event 
+      $('#patientRegisterForm').submit(function() { 
+          // submit the form 
+          $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, form)  { 
+                var resp = $.parseJSON( responseText );
+                if (resp.response && resp.response == "error") {
+                  $('.alert-danger').text(resp.message).show();
+                }
+            } 
+          }); 
+          // return false to prevent normal browser submit and page navigation 
+          return false; 
       });
 
     });
