@@ -2,7 +2,7 @@
 $app->get(
  
   '/home', function() {
-  	
+
   	require('header.php');
 	require('nav.php');
 	require('footer.php');
@@ -15,7 +15,7 @@ $app->get(
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Open MD</title>
 
     $header_template
     
@@ -38,8 +38,8 @@ $app->get(
         </div>
 
         <div class="btn-group buttons" role="group" aria-label="...">
-          <button type="button" class="btn btn-default btn-group-lg">Patients</button>
-          <button type="button" class="btn btn-default btn-group-lg">Doctors</button>
+          <a href="patient_register"><button type="button" class="btn btn-default btn-group-lg">Patients</button></a>
+          <a href="doctor_register"><button type="button" class="btn btn-default btn-group-lg">Doctors</button></a>
         </div>
     </div>
 
