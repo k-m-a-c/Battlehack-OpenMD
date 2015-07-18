@@ -62,7 +62,8 @@ $app->post(
         'submitForSettlement' => True
       ]
     ]);
-
+    echo $result;
+    echo $result->success;
     if ($result->success == 'true') {
       $db->exec("UPDATE patients
         SET nonce='$nonce', didPay='1'
