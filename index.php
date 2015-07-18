@@ -32,9 +32,8 @@ $app->get(
 
     if (strlen($email, "@") < 0) {
       $response = array(
-        "response":"error",
-        "message":"invalid email"
-      )
+        "response"=>"error", "message"=>"invalid email"
+      );
       echo json_encode($response);
       exit;
     }
