@@ -1,13 +1,13 @@
 <?php
 $app->get(
- 
+
   '/home', function() {
 
-  	require('header.php');
+  require('header.php');
 	require('nav.php');
 	require('footer.php');
 
-    echo <<<HTML
+  echo <<<HTML
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,10 +18,10 @@ $app->get(
     <title>Open MD</title>
 
     $header_template
-    
+
   </head>
  <body>
-    
+
  	$nav_template
 
     <div id="splash" class="container">
