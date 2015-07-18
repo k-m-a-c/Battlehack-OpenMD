@@ -63,7 +63,7 @@ $app->post(
       ]
     ]);
 
-    if ($result->success == true) {
+    if ($result->success == 'true') {
       $db->exec("UPDATE patients
         SET nonce='$nonce', didPay='1'
         WHERE id = '$id'");
