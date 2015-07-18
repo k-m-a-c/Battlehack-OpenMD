@@ -58,6 +58,22 @@ HTML;
     '/api/action/accept/doctor/:id', function($id) {
       require('connect.php');
       $db->exec("UPDATE doctors SET verified='1' WHERE id = '$id'");
+
+      foreach($db->query("SELECT * FROM doctors WHERE id = '$id'") as $row) {
+        $db_email = $row['email'];
+      }
+
+      // using SendGrid's PHP Library - https://github.com/sendgrid/sendgrid-php
+      $sendgrid = new SendGrid($api_user, $api_key);
+      $email    = new SendGrid\Email();
+
+      $email->addTo($db_email)
+            ->setFrom("info@openmd.io")
+            ->setSubject("OpenMD has approved your account!")
+            ->setHtml("you can login at: http://openmd.io\nThank you so much for the support");
+
+      $sendgrid->send($email);
+
       global $app;
       $app->redirect('/admin');
     }
@@ -67,6 +83,23 @@ HTML;
     '/api/action/reject/doctor/:id', function($id) {
       require('connect.php');
       $db->exec("UPDATE doctors SET verified='-1' WHERE id = '$id'");
+
+      foreach($db->query("SELECT * FROM doctors WHERE id = '$id'") as $row) {
+        $db_email = $row['email'];
+      }
+
+      // using SendGrid's PHP Library - https://github.com/sendgrid/sendgrid-php
+      $sendgrid = new SendGrid($api_user, $api_key);
+      $email    = new SendGrid\Email();
+
+      $email->addTo($db_email)
+            ->setFrom("info@openmd.io")
+            ->setSubject("OpenMD has rejected your account!")
+            ->setHtml("Your account has been rejected.
+            \nPlease reply to this email if you want to voice any concerns.");
+
+      $sendgrid->send($email);
+
       global $app;
       $app->redirect('/admin');
     }
