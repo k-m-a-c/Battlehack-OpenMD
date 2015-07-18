@@ -30,14 +30,6 @@ $app->post(
       exit;
     }
 
-    if (strlen($cpso) < 3) {
-      $response = array(
-        "response"=>"error", "message"=>"invalid cpso number."
-      );
-      echo json_encode($response);
-      exit;
-    }
-
     foreach($db->query("SELECT * FROM patients WHERE email = '$email'") as $row) {
       $db_email = $row['email'];
     }
