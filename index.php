@@ -14,7 +14,7 @@ $app = new \Slim\Slim();
 
 session_start();
 
-require('pages/homepage.php');
+require('pages/home.php');
 require('pages/admin.panel.php');
 
 require('api/doctor.register.php');
