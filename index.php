@@ -45,7 +45,7 @@ $app->get(
     // generate a client token on your server (see section below).
     var clientToken = "$clientToken";
 
-    braintree.setup(clientToken, "dropin", {
+    Braintree.setup(clientToken, "dropin", {
       container: "payment-form"
     });
     </script>
