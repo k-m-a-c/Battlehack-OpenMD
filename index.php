@@ -1,4 +1,5 @@
 <?php
+error_reporting(-1);
 
 require('Pusher.php');
 $app_id = '130666';
@@ -13,7 +14,7 @@ $app = new \Slim\Slim();
 
 require('pages/homepage.php');
 
-$app->get(
+$app->post(
   '/api/new/doctor', function() {
     require('connect.php');
     global $app;
@@ -30,7 +31,7 @@ $app->get(
     $cpso = $data['cpso'];
     */
 
-    if (strlen($email, "@") < 0) {
+    if (strpos($email, "@") < 0) {
       $response = array(
         "response"=>"error", "message"=>"invalid email"
       );
