@@ -57,6 +57,7 @@ HTML;
   $app->get(
     '/api/action/accept/doctor/:id', function($id) {
       require('connect.php');
+      require('SendGrid.php');
       $db->exec("UPDATE doctors SET verified='1' WHERE id = '$id'");
 
       foreach($db->query("SELECT * FROM doctors WHERE id = '$id'") as $row) {
@@ -82,6 +83,7 @@ HTML;
   $app->get(
     '/api/action/reject/doctor/:id', function($id) {
       require('connect.php');
+      require('SendGrid.php');
       $db->exec("UPDATE doctors SET verified='-1' WHERE id = '$id'");
 
       foreach($db->query("SELECT * FROM doctors WHERE id = '$id'") as $row) {
