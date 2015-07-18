@@ -31,7 +31,7 @@ $app->post(
     $cpso = $data['cpso'];
     */
 
-    if (strpos($email, "@") < 0) {
+    if (strlen($email) < 1) {
       $response = array(
         "response"=>"error", "message"=>"invalid email"
       );
