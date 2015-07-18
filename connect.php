@@ -10,6 +10,5 @@ $password = "03e316ec";
 
 
 //Connecting to your database
-mysql_connect($hostname, $username, $password) or die("error connecting to mysql");
-mysql_select_db($dbname) or die("error connecting to database");
+$db = new PDO('mysql:host='.$hostname.';dbname='.$dbname.';charset=utf8', $username, $password);
 ?>
