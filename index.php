@@ -53,7 +53,7 @@ $app->post(
     require('connect.php');
     $patientId = "12"; //To do verify patient ID
 
-    $nonce = $_POST["payment_method_nonce"];
+    $nonce = $_POST["fake-valid-nonce"];
 
     $result = Braintree_Transaction::sale([
       'amount' => '25.00',
