@@ -5,6 +5,7 @@ require 'Slim/Slim.php';
 
 $app = new \Slim\Slim();
 
+require('connect.php');
 require('Pusher.php');
 
 $app_id = '130666';
