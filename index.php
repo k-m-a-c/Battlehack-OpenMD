@@ -5,7 +5,7 @@ require 'Slim/Slim.php';
 
 $app = new \Slim\Slim();
 
-require('connect.php');
+
 require('Pusher.php');
 
 $app_id = '130666';
@@ -14,6 +14,7 @@ $app_secret = 'e12fb6a2a8eb232cc611';
 
 $app->get(
   '/', function() {
+    require('connect.php');
     $db->exec("INSERT INTO test (`test`) VALUES ('It Works2!')");
   }
 );
