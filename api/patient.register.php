@@ -9,6 +9,7 @@ $app->post(
     $email = $data['email'];
     $name = $data['name'];
     $password = $data['password'];
+    $password2 = $data['confirm_password'];
     $gender = $data['gender'];
     $birthday = $data['birthday'];
     $healthcard = $data['healthcard'];
