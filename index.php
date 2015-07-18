@@ -1,4 +1,5 @@
 <?php
+error_reporting(-1);
 
 require('Pusher.php');
 $app_id = '130666';
@@ -13,15 +14,43 @@ $app = new \Slim\Slim();
 
 require('pages/homepage.php');
 
-$app->get(
+$app->post(
   '/api/new/doctor', function() {
     require('connect.php');
+    global $app;
+		$request = $app->request();
+		$data = $request->params();
 
+    $email = $data['email'];
+    /*
+    $password = $data['password'];
+    $password2 = $data['confirm_password'];
+    $name = $data['name'];
+    $specialty = $data['specialty'];
+    $location = $data['location'];
+    $cpso = $data['cpso'];
+    */
+
+    if (strlen($email) < 1) {
+      $response = array(
+        "response"=>"error", "message"=>"invalid email"
+      );
+      echo json_encode($response);
+      exit;
+    }
   }
 );
 
-echo <<<HTML
-
+$app->get(
+  '/', function() {
+    echo <<<HTML
+    <form action="/api/new/doctor" method="POST">
+      <input type="text" name="email">
+      <input type="submit" value="Submit">
+    </form>
 HTML;
+  }
+);
+
 
 $app->run();
