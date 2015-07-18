@@ -25,9 +25,9 @@ $app->get(
  	$nav_template
 
     <div id="patient-register" class="form-page">
-      <h1 class="col-md-4">Sign Up for a Patient Account</h1>
+      <h1>Sign Up for a Patient Account</h1>
 
-      <div class="col-md-4">
+      <div>
         <form id="patientRegisterForm" action="/api/new/patient" method="POST">
           <div class="form-group">
             <label for="rpEmail">Email address</label>
@@ -73,8 +73,8 @@ $app->get(
       $('#patientRegisterForm').submit(function() { 
           // submit the form 
           $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, form)  { 
-              alert('status: ' + statusText + '\n\nresponseText: \n' + responseText + 
-                  '\n\nThe output div should have already been updated with the responseText.'); 
+                console.log('responseText: ' + responseText);
+                console.log('statusText: ' + statusText);
             } 
           }); 
           // return false to prevent normal browser submit and page navigation 

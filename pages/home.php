@@ -30,7 +30,7 @@ $app->get(
         </div>
 
         <div class="row">
-            <h2 class="col-md-4">Providing the best possible care requires having the most recent information</h2>
+            <h2>Providing the best possible care requires having the most recent information</h2>
         </div>
 
         <div class="row">
