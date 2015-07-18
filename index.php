@@ -14,7 +14,8 @@ $app = new \Slim\Slim();
 
 session_start();
 
-require('pages/homepage.php');
+require('pages/home.php');
+require('pages/patient_register.php');
 require('pages/admin.panel.php');
 
 require('api/doctor.register.php');
@@ -102,7 +103,7 @@ HTML;
   }
 );
 
-$app->get(
+/*$app->get(
   '/patient_register', function() {
     echo <<<HTML
     <form action="/api/new/patient" method="POST">
@@ -125,7 +126,7 @@ $app->get(
     </html>
 HTML;
   }
-);
+);*/
 
 
 $app->run();
