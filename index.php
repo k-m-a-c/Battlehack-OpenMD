@@ -24,7 +24,7 @@ $app->get(
   '/', function() {
     echo "Home Route";
   }
-)
+);
 
 $app->get(
   '/doctor_register', function() {
