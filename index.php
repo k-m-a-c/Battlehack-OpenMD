@@ -14,7 +14,7 @@ $app_secret = 'e12fb6a2a8eb232cc611';
 
 $app->get(
   '/', function() {
-    $db->exec("INSERT INTO test (`test`) VALUES ('It Works!')");
+    $db->exec("INSERT INTO test (`test`) VALUES ('It Works2!')");
   }
 );
 
