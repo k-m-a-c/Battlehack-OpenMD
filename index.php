@@ -51,6 +51,7 @@ HTML;
 $app->post(
   '/sub/checkout', function() {
     require('connect.php');
+    require("BrainTree/Braintree.php");
     $patientId = "12"; //To do verify patient ID
 
     $nonce = $_POST["payment_method_nonce"];
