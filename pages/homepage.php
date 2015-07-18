@@ -1,8 +1,13 @@
 <?php
 $app->get(
+ 
   '/homepage', function() {
+  	require('header.php');
+  	require('footer.php');
     echo <<<HTML
-    this is the homepage.
+   		$header_template;
+   		<h1>OpenMD</h1>
+   		$footer_template;
 HTML;
   }
 );
