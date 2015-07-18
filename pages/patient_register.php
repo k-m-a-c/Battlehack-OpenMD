@@ -65,7 +65,6 @@ $app->get(
 
    $footer_template
 
-
    <script>
     $(document).ready(function(){
       $('#patientRegisterForm').ajaxForm();
@@ -73,7 +72,7 @@ $app->get(
       // attach handler to form's submit event 
       $('#patientRegisterForm').submit(function() { 
           // submit the form 
-          $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, $form)  { 
+          $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, form)  { 
               alert('status: ' + statusText + '\n\nresponseText: \n' + responseText + 
                   '\n\nThe output div should have already been updated with the responseText.'); 
             } 
