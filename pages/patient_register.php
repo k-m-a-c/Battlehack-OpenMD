@@ -66,7 +66,7 @@ $app->get(
                 <input type="radio" name="gender" id="inlineRadio3" value="Other"> Other
               </label>
             </div>
-          </div> 
+          </div>
           <div class="row">
             <div class="form-group col-md-4">
               <label for="rpHealthcard8">City</label>
@@ -174,18 +174,18 @@ $app->get(
       $(document).ready(function(){
         $('#patientRegisterForm').ajaxForm();
 
-        // attach handler to form's submit event 
-        $('#patientRegisterForm').submit(function() { 
-            // submit the form 
-            $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, form)  { 
+        // attach handler to form's submit event
+        $('#patientRegisterForm').submit(function() {
+            // submit the form
+            $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, form)  {
                   var resp = $.parseJSON( responseText );
                   if (resp.response && resp.response == "error") {
                     $('.alert-danger').text(resp.message).show();
                   }
-              } 
-            }); 
-            // return false to prevent normal browser submit and page navigation 
-            return false; 
+              }
+            });
+            // return false to prevent normal browser submit and page navigation
+            return false;
         });
       });
 
