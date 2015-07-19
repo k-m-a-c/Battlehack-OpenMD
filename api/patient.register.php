@@ -92,7 +92,7 @@ $app->post(
     $password = md5($password);
 
     $db->exec("INSERT INTO patients
-    (`email`, `password`, `name`, `gender`, `birthday`, `healthcard`, `city`, `country`, `medName`, `medDosage`, `medFreq`
+    (`email`, `password`, `name`, `gender`, `birthday`, `healthcard`, `city`, `country`, `medName`, `medDosage`, `medFreq`,
     `surgeryType`, `surgeryDate`, `allergy`, `condition`)
     VALUES
     ('$email', '$password', '$name', '$gender', '$birthday', '$healthcard', '$city', '$country', '$drugs_list', '$dosage_list',
