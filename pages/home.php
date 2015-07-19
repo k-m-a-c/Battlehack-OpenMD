@@ -26,7 +26,7 @@ $app->get(
 
     <div id="splash" class="container">
         <div class="row">
-            <h1>Open MD</h1>
+            <h1>Open MD | Home</h1>
         </div>
 
         <div class="row">
@@ -38,7 +38,7 @@ $app->get(
         </div>
 
         <div class="row">
-          <p>$10 per month for patients, free for doctors.<p>
+          <p>$25 one-time fee for patients, free for doctors.<p>
         </div>
 
         <div class="btn-group buttons" role="group" aria-label="...">
