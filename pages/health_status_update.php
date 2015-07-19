@@ -62,7 +62,7 @@ $app->get(
 
           <div class="form-group">
             <label for="rpAdditionalInformation">Additional Information</label>
-            <input type="textarea" class="form-control" id="rpAdditionalInformation" placeholder="Say more about how you're feeling today!">
+            <input type="textarea" cols="50" rows="20" class="form-control" id="rpAdditionalInformation" placeholder="Say more about how you're feeling today!">
           </div>
 
           <button type="submit" class="btn btn-default">Submit</button>
