@@ -172,21 +172,14 @@ $app->get(
    <script>
       //ajax form submit
       $(document).ready(function(){
-        $('#patientRegisterForm').ajaxForm();
-
-        // attach handler to form's submit event
-        $('#patientRegisterForm').submit(function() {
-            // submit the form
-            $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, form)  {
-                  var resp = $.parseJSON( responseText );
-                  console.log(resp);
-                  if (resp.response && resp.response == "error") {
-                    $('.alert-danger').text(resp.message).show();
-                  }
-              }
-            });
-            // return false to prevent normal browser submit and page navigation
-            return false;
+        $('#patientRegisterForm').ajaxForm({
+          success: function(responseText) {
+            var resp = $.parseJSON( responseText );
+            console.log(resp);
+            if (resp.response && resp.response == "error") {
+              $('.alert-danger').text(resp.message).show();
+            }
+          }
         });
       });
 
