@@ -42,11 +42,11 @@ $app->get(
           <div class="row">
             <div class="form-group col-xs-6">
               <label for="rpName">First Name</label>
-              <input type="text" class="form-control" id="rpName" placeholder="Name" name="name">
+              <input type="text" class="form-control" id="rpName" placeholder="Name" name="first_name">
             </div>
             <div class="form-group col-xs-6">
               <label for="rpName">Last Name</label>
-              <input type="text" class="form-control" id="rpName" placeholder="Name" name="name">
+              <input type="text" class="form-control" id="rpName" placeholder="Name" name="last_name">
             </div>
           </div>
           <div class="row">
@@ -62,7 +62,7 @@ $app->get(
           <div class="row">
             <div class="form-group col-xs-6">
               <label for="rpNameOfInstitution">Name of Institution</label>
-              <input type="text" class="form-control" id="rpNameOfInstitution" placeholder="Add the name of your hospital or institution here" name="institution">
+              <input type="text" class="form-control" id="rpNameOfInstitution" placeholder="Add the name of your hospital or institution here" name="hospital">
             </div>
             <div class="form-group col-xs-6">
               <label for="rpCSPONumber">CSPO #</label>
@@ -72,7 +72,7 @@ $app->get(
           <div class="row">
             <div class="form-group col-xs-6">
               <label for="rpInstitutionalEmail">Institutional email address</label>
-              <input type="email" class="form-control" id="rmEmail" placeholder="Tpye in your institutional email address" name="email">
+              <input type="email" class="form-control" id="rmEmail" placeholder="Type in your institutional email address" name="email">
             </div>
           </div>
           <div class="row">
