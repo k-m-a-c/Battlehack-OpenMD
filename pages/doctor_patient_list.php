@@ -1,6 +1,9 @@
 <?php
 $app->get(
 
+  // THIS IS THE LIST OF PATIENTS
+  // THE PAGE IS INTENDED FOR USE BY DOCTORS
+
   '/doctor_patient_list', function() {
 
   require('header.php');
@@ -24,17 +27,77 @@ $app->get(
 
   $nav_template
 
-    <div id="doctor-patient-list" class="container-fluid">
+    <!-- TABBED NAV -->
+    <div id="doctor-patient-list-nav" class="container-fluid">
       <h1>Your Patient List</h1>
-      <ul class="nav nav-tabs inline-list">
-        <li class="active"><a href="#">Your Patients</a></li>
-        <li class="active"><a href="#">Add a Patient</a></li>
-        <li class="active"><a href="#">Patient Requests</a></li>
+      <p>Click one of the tabs below to browse your existing patients, add new
+      patients, and respond to patient requests.</p>
+
+      <ul class="nav nav-tabs inline-list" role="tablist" id="navList">
+
+        <li class="nav-tab active">
+          <a href="#yourPatients" aria-controls="yourPatients" role="tab" data-toggle="tab" id="yourPatients-tab">Your Patients</a>
+        </li>
+
+        <li class="nav-tab">
+          <a href="#addPatient" aria-controls="addPatient" role="tab" data-toggle="tab" id="addPatient-tab">Add a Patient</a>
+        </li>
+
+        <li class="nav-tab">
+          <a href="#patientRequests" aria-controls="patientRequests" role="tab" data-toggle="tab" id="patientRequests-tab">Patient Requests</a>
+        </li>
       </ul>
+    </div>
+
+    <!-- TAB PANES -->
+    <div id="doctor-patient-list-panes" class="container-fluid tab-content">
+
+      <div role="tabpanel" class="tab-pane fade active in" aria-labelled-by="yourPatients-tab" id="yourPatients">
+
+        <div class="your-patient inline-list" id="yourPatient">
+          <span>First Name</span>
+          <span>Second Name</span>
+          <span>City</span>
+          <span>Country</span>
+          <button><a href="#">See Patient Profile</a></button>
+        </div>
+
+      </div>
+
+      <div role="tabpanel" class="tab-pane fade in" id="addPatient" aria-labelled-by="addPatient-tab">
+
+        <div class="patient inline-list" id="patient">
+          <span>First Name</span>
+          <span>Second Name</span>
+          <span>City</span>
+          <span>Country</span>
+          <button><a href="#">Add as Your Patient</a></button>
+        </div>
+
+      </div>
+
+      <div role="tabpanel" class="tab-pane fade in" id="patientRequests" aria-labelled-by="patientRequests-tab">
+
+        <div class="patient-request inline-list" id="patient-request">
+          <span>First Name</span>
+          <span>Second Name</span>
+          <span>City</span>
+          <span>Country</span>
+          <button><a href="#">Accept Patient</a></button>
+        </div>
+
+      </div>
     </div>
 
    $footer_template
 
+    <script>
+      $('#navList a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+      });
+
+    </script>
   </body>
 </html>
 HTML;

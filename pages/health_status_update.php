@@ -29,41 +29,41 @@ $app->get(
 
       <div>
         <div class="alert alert-danger" role="alert"></div>
-        <form id="healthStatusUpdateForm" action="/api/new/patient" method="POST">
+        <form id="healthStatusUpdateForm" action="/patient/new/status" method="POST">
 
           <div class="form-group">
             <label for="rpPhysicalHealthScore">Physical Health Score</label>
-            <input type="number" class="form-control" id="rmPhysicalHealthScore" placeholder="number">
+            <input type="number" class="form-control" id="rmPhysicalHealthScore" placeholder="number" name="physicalHealth">
           </div>
 
           <div class="form-group">
             <label for="rpMentalHealthScore">Mental Health Score</label>
-            <input type="number" class="form-control" id="rmMentalHealthScore" placeholder="number">
+            <input type="number" class="form-control" id="rmMentalHealthScore" placeholder="number" name="mentalHealth">
           </div>
 
           <div class="form-group">
             <label for="rpBodyTemperature">Body Temperature</label>
-            <input type="number" class="form-control" id="rpBodyTemperature" placeholder="Type in your body temperature">
+            <input type="number" class="form-control" id="rpBodyTemperature" placeholder="Type in your body temperature" name="bodyTemp">
           </div>
 
           <div class="form-group">
             <label for="rpBloodPressure">Blood Pressure</label>
-            <input type="number" class="form-control" id="rpBloodPressure" placeholder="Type in your blood pressure">
+            <input type="number" class="form-control" id="rpBloodPressure" placeholder="Type in your blood pressure" name="bloodPressure">
           </div>
 
           <div class="form-group">
             <label for="rpName">Heart Rate</label>
-            <input type="number" class="form-control" id="rpHeartRate" placeholder="Type in your heart rate">
+            <input type="number" class="form-control" id="rpHeartRate" placeholder="Type in your heart rate" name="heartRate">
           </div>
 
           <div class="form-group">
             <label for="rpRespiratoryRate">Respiratory Rate</label>
-            <input type="number" class="form-control" id="rpRespiratoryRate" placeholder="Type in your respiratory rate">
+            <input type="number" class="form-control" id="rpRespiratoryRate" placeholder="Type in your respiratory rate" name="respiratoryRate">
           </div>
 
           <div class="form-group">
             <label for="rpAdditionalInformation">Additional Information</label>
-            <input type="text" class="form-control" id="rpAdditionalInformation" placeholder="Say more about how you're feeling today!">
+            <input type="text" class="form-control" id="rpAdditionalInformation" placeholder="Say more about how you're feeling today!" name="additionalInfo">
           </div>
 
           <button type="submit" class="btn btn-default">Submit</button>
@@ -76,7 +76,6 @@ $app->get(
    <script>
     /*$(document).ready(function(){
       $('#healthStatusUpdateForm').ajaxForm();
-
       // attach handler to form's submit event
       $('#healthStatusUpdateForm').submit(function() {
           // submit the form
@@ -84,6 +83,8 @@ $app->get(
                 var resp = $.parseJSON( responseText );
                 if (resp.response && resp.response == "error") {
                   $('.alert-danger').text(resp.message).show();
+                } else {
+                  location.href = "/patient/home";
                 }
             }
           });

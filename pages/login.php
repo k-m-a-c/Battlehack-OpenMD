@@ -39,11 +39,11 @@ $app->get(
             </label>
           </div>
         </div>
-        
+
         <div id="patient-login">
           <div class="alert alert-danger" role="alert"></div>
           <form id="patientLoginForm" action="/api/login/patient" method="POST">
-            
+
             <div class="row">
               <div class="form-group col-md-12">
                 <label for="uName">Email</label>
@@ -64,7 +64,7 @@ $app->get(
         <div id="doctor-login">
           <div class="alert alert-danger" role="alert"></div>
           <form id="doctorLoginForm" action="/api/login/doctor" method="POST">
-            
+
             <div class="row">
               <div class="form-group col-md-12">
                 <label for="uName">Email</label>
@@ -85,7 +85,7 @@ $app->get(
 
       <div class="row paypal">
         <h4>Please submit a one one time paymet of $25 to use OpenMD</h4>
-        <form id="checkout" method="post" action="/patient/home">
+        <form id="checkout" method="post" action="/patient/pay">
           <div id="payment-form"></div>
           <input class="btn btn-default" type="submit" value="Pay $25">
         </form>
@@ -112,7 +112,7 @@ $app->get(
                     $('.alert-danger').text(resp.message).show();
                   } else {
                     $('.alert-danger').hide();
-                    if ( resp.user_type == "patient" ){ 
+                    if ( resp.user_type == "patient" ){
                       $.get( "/api/check/patient/payed", function( resp ) {
                           console.log('resp: ' + resp);
                           if ( resp == "0" ) {
@@ -122,6 +122,7 @@ $app->get(
                           } else {
                             console.log('redirect to main')
                             // redirect to main patient page
+                            location.href = location.origin + '/patient/home';
                           }
                       });
                     } else {
@@ -142,7 +143,7 @@ $app->get(
               container: "payment-form"
           });
         }
-        
+
       });
 
     $(document).ready(function() {

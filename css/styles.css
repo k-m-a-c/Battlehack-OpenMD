@@ -64,7 +64,13 @@
 }
 
 #login-page .paypal {
-	display: none; 
+	display: none;
+}
+
+/*doctor patient list*/
+
+.patient-request {
+
 }
 
 /* status report */
