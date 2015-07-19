@@ -110,7 +110,7 @@ $app->get(
                   } else {
                     $('.alert-danger').hide();
                     if ( resp.user_type == "patient" ){ 
-                      $.getJSON( "/get/braintree/token", function( data ) {
+                      $.get( "/get/braintree/token", function( data ) {
                         loadPayment(data);
                       });
                     }
