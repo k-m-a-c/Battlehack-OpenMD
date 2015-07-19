@@ -27,64 +27,67 @@ $app->get(
     <div id="login-page" class="form-page container-fluid">
       <h1>Login</h1>
 
-      <div class="row">
-        <div class="form-group col-md-12">
-          <label class="check-label">I am a </label>
-          <label class="radio-inline">
-            <input type="radio"  name="radio" class="radio" value="Patient" checked="checked"> Patient
-          </label>
-          <label class="radio-inline">
-            <input type="radio"  name="radio" class="radio" value="Doctor"> Doctor
-          </label>
+      <div class="login-forms">
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label class="check-label">I am a </label>
+            <label class="radio-inline">
+              <input type="radio"  name="radio" class="radio" value="Patient" checked="checked"> Patient
+            </label>
+            <label class="radio-inline">
+              <input type="radio"  name="radio" class="radio" value="Doctor"> Doctor
+            </label>
+          </div>
+        </div>
+        
+        <div id="patient-login">
+          <div class="alert alert-danger" role="alert"></div>
+          <form id="patientLoginForm" action="/api/login/patient" method="POST">
+            
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="uName">Email</label>
+                <input type="text" class="form-control" id="uName" placeholder="" name="email">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="pWord">Password</label>
+                <input type="text" class="form-control" id="pWord" placeholder="" name="password">
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-default">Login</button>
+          </form>
+        </div>
+
+        <div id="doctor-login">
+          <div class="alert alert-danger" role="alert"></div>
+          <form id="doctorLoginForm" action="/api/login/doctor" method="POST">
+            
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="uName">Email</label>
+                <input type="text" class="form-control" id="uName" placeholder="" name="email">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="pWord">Password</label>
+                <input type="text" class="form-control" id="pWord" placeholder="" name="password">
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-default">Login</button>
+          </form>
         </div>
       </div>
-      
-      <div id="patient-login">
-        <div class="alert alert-danger" role="alert"></div>
-        <form id="patientLoginForm" action="/api/login/patient" method="POST">
-          
-          <div class="row">
-            <div class="form-group col-md-12">
-              <label for="uName">Email</label>
-              <input type="text" class="form-control" id="uName" placeholder="" name="email">
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-md-12">
-              <label for="pWord">Password</label>
-              <input type="text" class="form-control" id="pWord" placeholder="" name="password">
-            </div>
-          </div>
 
-          <button type="submit" class="btn btn-default">Login</button>
-        </form>
-      </div>
-
-      <div id="doctor-login">
-        <div class="alert alert-danger" role="alert"></div>
-        <form id="doctorLoginForm" action="/api/login/doctor" method="POST">
-          
-          <div class="row">
-            <div class="form-group col-md-12">
-              <label for="uName">Email</label>
-              <input type="text" class="form-control" id="uName" placeholder="" name="email">
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-md-12">
-              <label for="pWord">Password</label>
-              <input type="text" class="form-control" id="pWord" placeholder="" name="password">
-            </div>
-          </div>
-
-          <button type="submit" class="btn btn-default">Login</button>
-        </form>
-      </div>
-
-      <div class="row">
+      <div class="row paypal">
+        <h3>Please submit a one one time paymet of $25 to use OpenMD</h3>
         <form id="checkout" method="post" action="/checkout">
           <div id="payment-form"></div>
-          <input type="submit" value="Pay $20">
+          <input class="btn btn-default" type="submit" value="Pay $25">
         </form>
       </div>
     </div>
@@ -112,18 +115,18 @@ $app->get(
                     if ( resp.user_type == "patient" ){ 
                       $.get( "/api/check/patient/payed", function( resp ) {
                           console.log('resp: ' + resp);
-                          //if ( resp == "0" ) {
+                          if ( resp == "0" ) {
                             $.get( "/get/braintree/token", function( data ) {
                               loadPayment(data);
                             });
-                          /*} else {
+                          } else {
                             console.log('redirect to main')
-                            // redirect to main
-                          }*/
+                            // redirect to main patient page
+                          }
                       });
                     } else {
                       console.log('redirect to main')
-                      // redirect to main
+                      location.href = location.origin + '/doctor/home';
                     }
                   }
               }
@@ -133,7 +136,8 @@ $app->get(
         }
 
         function loadPayment(token) {
-          $('#checkout').show();
+          $('.paypal').show();
+          $('.login-forms').hide();
           braintree.setup(token, "dropin", {
               container: "payment-form"
           });
