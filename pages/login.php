@@ -135,9 +135,6 @@ $app->get(
                     location.href = location.origin + '/doctor/home';
                   }
                 }
-            }
-            // return false to prevent normal browser submit and page navigation
-            return false;
         }
 
         function loadPayment(token) {
