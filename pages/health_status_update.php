@@ -4,7 +4,7 @@ $app->get(
   '/health_status_update', function() {
 
   require('header.php');
-  require('nav.php');
+  require('nav-internal.php');
   require('footer.php');
 
   echo <<<HTML

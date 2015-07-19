@@ -7,7 +7,7 @@ $app->get(
   '/doctor_patient_list', function() {
 
   require('header.php');
-  require('nav.php');
+  require('nav-internal.php');
   require('footer.php');
 
     echo <<<HTML
