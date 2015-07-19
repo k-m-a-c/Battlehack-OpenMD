@@ -36,6 +36,7 @@ require('pages/doctor.home.php');
 require('pages/display.patient.php');
 require('pages/patient.home.php');
 require('pages/display.doctor.php');
+require('pages/thank_you.php');
 
 require('api/accept.doctor.php');
 require('api/accept.patient.php');
