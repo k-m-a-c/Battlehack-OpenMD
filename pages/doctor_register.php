@@ -66,7 +66,7 @@ $app->get(
             </div>
             <div class="form-group col-xs-6">
               <label for="rpCSPONumber">CSPO #</label>
-              <input type="text" class="form-control" id="rpCSPONumber" placeholder="Add your CSPO # here" name="cspo">
+              <input type="text" class="form-control" id="rpCSPONumber" placeholder="Add your CPSO # here" name="cpso">
             </div>
           </div>
           <div class="row">
