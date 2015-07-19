@@ -85,8 +85,8 @@ $app->get(
         $.each(data, function(i,d) {
           html += "<tr>";
             html += "<td><a href='"+d.doctor_profile_link+"'>"+d.name+"</a></td>";
-            html += "<td>"+d.city+" "+d.country+"</td>";
-            html += "<td>"+d.healthcard+"</td>";
+            html += "<td>"+d.location+"</td>";
+            html += "<td>"+d.hospital+"</td>";
           html += "</tr>";
         });
         html += "</table>";
