@@ -73,7 +73,7 @@ $app->post(
     ('$photo', '$email', '$password', '$name', '$specialty', '$location', '$cpso', '$hospital')");
 
     $response = array(
-      "response"=>"success", "message"=>"email: ".$email." registered."
+      "response"=>"success", "message"=>"email: ".$email." registered.", "email"=>$email
     );
     echo json_encode($response);
     exit;
