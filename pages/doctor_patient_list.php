@@ -42,10 +42,10 @@ $app->get(
       <div role="tabpanel" class="tab-pane fade active in" aria-labelled-by="yourPatients-tab" id="yourPatients">
         <p>All ze patients!</p>
       </div>
-      <div role="tabpanel" class="tab-pane" id="addPatient" aria-labelled-by="addPatient-tab">
+      <div role="tabpanel" class="tab-pane fade active in" id="addPatient" aria-labelled-by="addPatient-tab">
         <p>Add a patient</p>
       </div>
-      <div role="tabpanel" class="tab-pane" id="patientRequests" aria-labelled-by="patientRequests-tab">
+      <div role="tabpanel" class="tab-pane fade active in" id="patientRequests" aria-labelled-by="patientRequests-tab">
         <p>Respond to patient requests</p>
       </div>
     </div>
