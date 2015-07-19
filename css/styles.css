@@ -20,6 +20,11 @@ h2 {
 
 }
 
+h3 {
+	font-weight: 400;
+
+}
+
 /*CONTAINER*/
 .container {
 	position: relative;
@@ -60,7 +65,7 @@ h2 {
 }
 
 .navbar-header {
-	background-color: #fff;
+	border-width: 0rem;
 }
 
 

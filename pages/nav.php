@@ -11,6 +11,7 @@ $nav_template = <<<HTML
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#">OpenMD</a>
+        <img src="brand-icon.png">
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
