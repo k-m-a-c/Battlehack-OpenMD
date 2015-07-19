@@ -27,7 +27,8 @@ $app->get(
     <!-- TABBED NAV -->
     <div id="doctor-patient-list-nav" class="container-fluid">
       <h1>Your Patient List</h1>
-      <ul class="nav nav-tabs inline-list" role="tablist" id="patient-list">
+      <ul class="nav nav-tabs inline-list" role="tablist" id="navList">
+
         <li class="nav-tab active">
           <a href="#yourPatients" aria-controls="yourPatients" role="tab" data-toggle="tab" id="yourPatients-tab">Your Patients</a>
         </li>
@@ -46,22 +47,29 @@ $app->get(
     <div id="doctor-patient-list-panes" class="container-fluid">
 
       <div role="tabpanel" class="tab-pane fade active in" aria-labelled-by="yourPatients-tab" id="yourPatients">
-        <p>All ze patients!</p>
+
+        <ul class="your-patient-list" id="yourPatientList">
+          <li class="your-patient">Patient One<li>
+        </ul>
       </div>
 
       <div role="tabpanel" class="tab-pane fade in" id="addPatient" aria-labelled-by="addPatient-tab">
-        <p>Add a patient</p>
+        <ul class="full-patient-list" id="fullPatientList">
+          <li class="add-patient">Patient One<li>
+        </ul>
       </div>
 
       <div role="tabpanel" class="tab-pane fade in" id="patientRequests" aria-labelled-by="patientRequests-tab">
-        <p>Respond to patient requests</p>
+        <ul class="patient-request-list" id="patientRequestList">
+          <li class="patient-request">Patient One<li>
+        </ul>
       </div>
     </div>
 
    $footer_template
 
     <script>
-      $('#patient-list a').click(function (e) {
+      $('#navList a').click(function (e) {
         e.preventDefault()
         $(this).tab('show')
       });
