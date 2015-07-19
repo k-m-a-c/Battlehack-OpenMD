@@ -121,7 +121,7 @@ $app->get(
       $.getJSON( "api/patient/home", function( data ) {
         var items = [];
         $.each( data, function( key, val ) {
-          items.push( "<li id='" + key + "'>""Doctor Profile Link: " + val.doctor_profile_link + "</li>" );
+          items.push( "<li id='" + key + "'>Doctor Profile Link: " + val.doctor_profile_link + "</li>" );
         });
 
         $( "<ul/>", {
