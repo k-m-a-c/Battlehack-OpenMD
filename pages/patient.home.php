@@ -58,6 +58,7 @@ $app->get('/api/patient/home', function() {
   foreach($db->query("SELECT * FROM doctors") as $row) {
     $d = array(
       'doctor_profile_link' => "/doctor/u/".$row['id'],
+      'name' => $row['name'],
       'location' => $row['location'],
       'hospital' => $row['hospital'],
       'request_doctor_link' => "/api/patient/add/doctor/".$row['id']
@@ -83,6 +84,7 @@ $app->get('/api/patient/requests', function() {
   GROUP BY doctors.id") as $row) {
     $d = array(
       'doctor_profile_link' => "/doctor/u/".$row['id'],
+      'name' => $row['name'],
       'location' => $row['location'],
       'hospital' => $row['hospital'],
       'accept_doctor_link' => "/accept/doctor/".$row['id']
