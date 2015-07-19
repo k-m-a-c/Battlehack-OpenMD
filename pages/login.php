@@ -102,13 +102,13 @@ $app->get(
               submitHandler( response );
               return false;
           }
-        );
+        });
         $('#doctorLoginForm').ajaxForm({
           success: function(responseText)  {
               submitHandler( response );
               return false;
           }
-        );
+        }); 
 
         function submitHandler( response ) {
             // submit the form
