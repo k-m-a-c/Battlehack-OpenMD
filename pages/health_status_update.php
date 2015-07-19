@@ -74,7 +74,7 @@ $app->get(
    $footer_template
 
    <script>
-    $(document).ready(function(){
+    /*$(document).ready(function(){
       $('#healthStatusUpdateForm').ajaxForm();
 
       // attach handler to form's submit event
@@ -91,7 +91,7 @@ $app->get(
           return false;
       });
 
-    });
+    });*/
     </script>
 
   </body>
