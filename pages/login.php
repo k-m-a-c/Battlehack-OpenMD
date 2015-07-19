@@ -98,13 +98,15 @@ $app->get(
       //ajax form submit
       $(document).ready(function(){
         $('#patientLoginForm').ajaxForm(
-          'success': function(responseText, statusText, xhr, form)  {
+          success: function(responseText)  {
               submitHandler( response );
+              return false;
           }
         );
         $('#doctorLoginForm').ajaxForm(
-          'success': function(responseText, statusText, xhr, form)  {
+          success: function(responseText)  {
               submitHandler( response );
+              return false;
           }
         );
 
