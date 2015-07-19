@@ -26,7 +26,7 @@ $app->get(
 
     <div id="splash" class="container">
         <div class="row">
-            <h1>Open MD</h1>
+            <img src="logo.png">
         </div>
 
         <div class="row">
