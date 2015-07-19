@@ -33,6 +33,10 @@ $app->get(
       <p>Click one of the tabs below to browse your existing doctors, add new
       doctors, and respond to doctor requests.</p>
 
+      if ($('ul#navList').length == 0)
+        print "<p>Add a doctor</p>"
+        <button id="emptyStateAddDoctor"><a href="#">See All Doctors</a></button>
+
       <ul class="nav nav-tabs inline-list" role="tablist" id="navList">
 
         <li class="nav-tab active">
@@ -50,9 +54,14 @@ $app->get(
     </div>
 
     <!-- TAB PANES -->
-    <div id="patient-doctor-list-panes" class="container-fluid tab-content">
+    <div id="patientDoctorListPanes" class="container-fluid tab-content">
 
       <div role="tabpanel" class="tab-pane fade active in" aria-labelled-by="yourDoctors-tab" id="yourDoctors">
+
+        <div>
+          if ($('#yourDoctors') == 0)
+
+        </div
 
         <div class="your-doctor inline-list" id="yourDoctor">
           <span>First Name</span>
@@ -98,10 +107,16 @@ $app->get(
         $(this).tab('show')
       });
 
+      //handle automatic tab switch on empty list state button
+      $('#navList a').click(function (e) {
+        e.preventDefault()
+        $('#navList li:eq(1) a').tab('show');
+      })
+
       //get all doctors and append to #addDoctor div
       $.getJSON( "api/patient/home", function( data ) {
         var items = [];
-        $.each( data, function( key, val ) {
+        $.each( data, function( n, key, val ) {
           items.push( "<li id='" + key + "'>" + val + "</li>" );
         });
 
