@@ -1,6 +1,6 @@
 <?php
 $app->get(
-  '/api/doctor/add/patient/:doctorId', function($doctorId) {
+  '/api/patient/add/doctor/:doctorId', function($doctorId) {
     require('connect.php');
 
     $patientId = $_SESSION['user_id'];
