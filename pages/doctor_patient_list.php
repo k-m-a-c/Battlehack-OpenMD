@@ -27,33 +27,49 @@ $app->get(
     <!-- TABBED NAV -->
     <div id="doctor-patient-list-nav" class="container-fluid">
       <h1>Your Patient List</h1>
-      <ul class="nav nav-tabs inline-list">
-        <li class="nav-tab active"><a href="#yourPatients" aria-controls="yourPatients" role="tab" data-toggle="tab">Your Patients</a></li>
+      <ul class="nav nav-tabs inline-list" role="tablist" id="navList">
 
-        <li class="nav-tab active"><a href="#addPatient" aria-controls="addPatient" role="tab" data-toggle="tab">Add a Patient</a></li>
+        <li class="nav-tab active">
+          <a href="#yourPatients" aria-controls="yourPatients" role="tab" data-toggle="tab" id="yourPatients-tab">Your Patients</a>
+        </li>
 
-        <li class="nav-tabactive"><a href="#patientRequests" aria-controls="patientRequests" role="tab" data-toggle="tab">Patient Requests</a></li>
+        <li class="nav-tab">
+          <a href="#addPatient" aria-controls="addPatient" role="tab" data-toggle="tab" id="addPatient-tab">Add a Patient</a>
+        </li>
+
+        <li class="nav-tab">
+          <a href="#patientRequests" aria-controls="patientRequests" role="tab" data-toggle="tab" id="patientRequests-tab">Patient Requests</a>
+        </li>
       </ul>
     </div>
 
     <!-- TAB PANES -->
     <div id="doctor-patient-list-panes" class="container-fluid">
 
-      <div role="tabpanel" class="tab-pane" id="yourPatients">
-        <p>All ze patients!</p>
+      <div role="tabpanel" class="tab-pane fade active in" aria-labelled-by="yourPatients-tab" id="yourPatients">
+
+        <ul class="your-patient-list" id="yourPatientList">
+          <li class="your-patient">Patient One<li>
+        </ul>
       </div>
-      <div role="tabpanel" class="tab-pane" id="addPatient">
-        <p>Add a patient</p>
+
+      <div role="tabpanel" class="tab-pane fade in" id="addPatient" aria-labelled-by="addPatient-tab">
+        <ul class="full-patient-list" id="fullPatientList">
+          <li class="add-patient">Patient One<li>
+        </ul>
       </div>
-      <div role="tabpanel" class="tab-pane" id="patientRequests">
-        <p>Respond to patient requests</p>
+
+      <div role="tabpanel" class="tab-pane fade in" id="patientRequests" aria-labelled-by="patientRequests-tab">
+        <ul class="patient-request-list" id="patientRequestList">
+          <li class="patient-request">Patient One<li>
+        </ul>
       </div>
     </div>
 
    $footer_template
 
     <script>
-      $('#nav-tabs a').click(function (e) {
+      $('#navList a').click(function (e) {
         e.preventDefault()
         $(this).tab('show')
       });
