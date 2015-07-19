@@ -27,6 +27,7 @@ require('api/patient.login.php');
 
 require('api/patient.new.status.php');
 
+require('api/check.bt.token.php');
 require('api/acquire.bt.token.php');
 require('api/bt.pay.php');
 
@@ -38,6 +39,7 @@ $app->get(
       <input type="password" name="password">
       <input type="submit" value="Login">
     </form>
+HTML;
   }
 );
 
@@ -49,6 +51,7 @@ $app->get(
       <input type="password" name="password">
       <input type="submit" value="Login">
     </form>
+HTML;
   }
 );
 
