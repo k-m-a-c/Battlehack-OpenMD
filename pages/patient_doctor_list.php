@@ -92,9 +92,36 @@ $app->get(
    $footer_template
 
     <script>
+      //handle tab navigation
       $('#navList a').click(function (e) {
         e.preventDefault()
         $(this).tab('show')
+      });
+
+      //get all doctors and append to #addDoctor div
+      $.getJSON( "api/patient/home", function( data ) {
+        var items = [];
+        $.each( data, function( key, val ) {
+          items.push( "<li id='" + key + "'>" + val + "</li>" );
+        });
+
+        $( "<ul/>", {
+          "class": "doctor",
+          html: items.join( "" )
+        }).appendTo( "#addDoctor" );
+      });
+
+      //get all doctor requests and append to #doctorRequests div
+      $.getJSON( "api/patient/home", function( data ) {
+        var items = [];
+        $.each( data, function( key, val ) {
+          items.push( "<li id='" + key + "'>" + val + "</li>" );
+        });
+
+        $( "<ul/>", {
+          "class": "doctor-request",
+          html: items.join( "" )
+        }).appendTo( "#doctorRequests" );
       });
 
     </script>
