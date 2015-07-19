@@ -48,5 +48,6 @@ require('api/check.bt.token.php');
 require('api/acquire.bt.token.php');
 require('api/bt.pay.php');
 
+require('api/health.status.php');
 
 $app->run();
