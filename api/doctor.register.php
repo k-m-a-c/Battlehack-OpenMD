@@ -8,11 +8,13 @@ $app->post(
 
     $photo = "";
 
+    /*
     $files = $_FILES['photo'];
 		$name = uniqid('img-'.date('Ymd').'-'.$files['name']);
 		if (move_uploaded_file($files['tmp_name'], '/photos/' . $name) === true) {
 		  $photo = '/photos/' . $name;
     }
+    */
 
     $email = $data['email'];
     $password = $data['password'];
