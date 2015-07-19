@@ -47,7 +47,7 @@ $app->get('/doctor/home', function() {
 HTML;
 });
 
-$app->get('api/doctor/home', function() {
+$app->get('/api/doctor/home', function() {
   require('connect.php');
   if ($_SESSION['user_type'] != "doctor") {
     global $app;
@@ -69,7 +69,7 @@ $app->get('api/doctor/home', function() {
   echo json_encode($data);
 });
 
-$app->get('/doctor/home', function() {
+$app->get('/doctor/requests', function() {
   require('header.php');
   require('nav-internal.php');
   require('footer.php');
@@ -96,7 +96,7 @@ $app->get('/doctor/home', function() {
     $footer_template
     <script>
     $(document).ready(function() {
-      $.get('/api/doctor/home', function(data) {
+      $.get('/api/doctor/requests', function(data) {
         data = JSON.parse(data);
         var html = "<table border='1'>";
         $.each(data, function(i,d) {
@@ -117,7 +117,7 @@ $app->get('/doctor/home', function() {
 HTML;
 });
 
-$app->get('api/doctor/requests', function() {
+$app->get('/api/doctor/requests', function() {
   require('connect.php');
   if ($_SESSION['user_type'] != "doctor") {
     global $app;
