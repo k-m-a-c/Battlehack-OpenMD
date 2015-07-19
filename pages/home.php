@@ -24,13 +24,13 @@ $app->get(
 
  	$nav_template
 
-    <div id="splash" class="container">
+    <div id="splash" class="container section">
         <div class="row">
             <img src="logo.png">
         </div>
 
         <div class="row">
-            <h2>Providing the best possible care requires having the most recent information</h2>
+            <h2>The best possible care requires having the best possible information</h2>
         </div>
 
         <div class="row">
@@ -42,8 +42,8 @@ $app->get(
         </div>
 
         <div class="btn-group buttons" role="group" aria-label="...">
-          <a href="patient_register"><button type="button" class="btn btn-default btn-group-lg">Patients</button></a>
-          <a href="doctor_register"><button type="button" class="btn btn-default btn-group-lg">Doctors</button></a>
+          <a href="patient_register"><button type="button" class="btn btn-primary btn-lg btn-group-lg">Patients</button></a>
+          <a href="doctor_register"><button type="button" class="btn btn-primary btn-lg btn-group-lg">Doctors</button></a>
         </div>
 
     </div>
