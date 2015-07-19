@@ -8,6 +8,7 @@ $footer_template = <<<HTML
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 	<script src="js/lib/jquery.form.min.js"></script>
+	<script src="js/lib/jquery.dateformat.min.js"></script>
 HTML;
 
 ?>
