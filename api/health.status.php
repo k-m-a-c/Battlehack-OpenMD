@@ -4,7 +4,7 @@ $app->get('/patient/health/:patientId', function($patientId) {
   $data = array();
   foreach($db->query("SELECT * FROM patients_status
   WHERE patientId = '$patientId'
-  ORDER BY date_created DESC") as $row) {
+  ORDER BY dateCreated DESC") as $row) {
     $d = array(
       'id' => $row['id'],
       'physical_health' => $row['physicalHealth'],
