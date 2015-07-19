@@ -2,8 +2,9 @@
 $app->get('/patient/health/:patientId', function($patientId) {
   require('connect.php');
   $data = array();
-  foreach($db->query("SELECT * FROM patient_status
-  WHERE patientId = '$patientId'") as $row) {
+  foreach($db->query("SELECT * FROM patients_status
+  WHERE patientId = '$patientId'
+  ORDER BY date_created DESC") as $row) {
     $d = array(
       'id' => $row['id'],
       'physical_health' => $row['physicalHealth'],
@@ -12,7 +13,8 @@ $app->get('/patient/health/:patientId', function($patientId) {
       'blood_pressure' => $row['bloodPressure'],
       'heart_rate' => $row['heartRate'],
       'respiratory_rate' => $row['respiratoryRate'],
-      'additional_info' => $row['additionalInfo']
+      'additional_info' => $row['additionalInfo'],
+      'date_created' => $row['dateCreated']
     );
     array_push($data,$d);
   }
