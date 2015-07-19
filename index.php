@@ -19,7 +19,7 @@ require('pages/login.php');
 require('pages/patient_register.php');
 require('pages/doctor_register.php');
 require('pages/doctor_patient_list.php'); // The list of patients FOR doctors
-require('pages/patient_doctor_list'); // The list of doctors FOR patients
+require('pages/patient_doctor_list.php'); // The list of doctors FOR patients
 require('pages/health_status_update.php');
 require('pages/admin.panel.php');
 
