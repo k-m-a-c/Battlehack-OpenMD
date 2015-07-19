@@ -105,7 +105,7 @@ $app->get(
                   location.href = "thank_you";
                 }
                 return false;
-            }
+            } 
         });
       });
       
