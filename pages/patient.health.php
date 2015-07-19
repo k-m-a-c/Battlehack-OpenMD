@@ -1,7 +1,7 @@
 <?php
 $app->get(
 
-  '/patient/health', function() {
+  '/patient_health', function() {
 
   require('header.php');
 	require('nav.php');
