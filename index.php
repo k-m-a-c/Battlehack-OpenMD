@@ -16,6 +16,7 @@ session_start();
 
 require('pages/home.php');
 require('pages/patient_register.php');
+require('pages/health_status_update.php');
 require('pages/admin.panel.php');
 
 require('api/doctor.register.php');

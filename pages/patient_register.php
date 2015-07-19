@@ -1,8 +1,8 @@
 <?php
 $app->get(
- 
+
   '/patient_register', function() {
-  	
+
   require('header.php');
 	require('nav.php');
 	require('footer.php');
@@ -18,17 +18,34 @@ $app->get(
     <title>Open MD Patient Registration</title>
 
     $header_template
-    
+
   </head>
  <body>
-    
+
  	$nav_template
 
     <div id="patient-register" class="form-page">
-      <h1 class="col-md-4">Sign Up for a Patient Account</h1>
+      <h1>Sign Up for a Patient Account</h1>
 
-      <div class="col-md-4">
+      <div>
+        <div class="alert alert-danger" role="alert"></div>
         <form id="patientRegisterForm" action="/api/new/patient" method="POST">
+          <div class="form-group">
+            <label for="rpName">Name</label>
+            <input type="text" class="form-control" id="rpName" placeholder="Name" name="name">
+          </div>
+          <div class="form-group">
+            <label for="rpGender">Gender</label>
+            <input type="text" class="form-control" id="rpGender" placeholder="Gender" name="gender">
+          </div>
+          <div class="form-group">
+            <label for="rpBirthday">Birthday</label>
+            <input type="date" class="form-control" id="rpBirthday" placeholder="Birthday" name="birthday">
+          </div>
+          <div class="form-group">
+            <label for="rpHealthcard">Healthcard Nubmer</label>
+            <input type="number" class="form-control" id="rpHealthcard" placeholder="Healthcard Number" name="healthcard">
+          </div>
           <div class="form-group">
             <label for="rpEmail">Email address</label>
             <input type="email" class="form-control" id="rmEmail" placeholder="Email" name="email">
@@ -41,23 +58,7 @@ $app->get(
             <label for="rpPassword2">Confirm Password</label>
             <input type="password" class="form-control" id="rpPassword2" placeholder="Password" name="confirm_password">
           </div>
-          <div class="form-group">
-            <label for="rpName">Name</label>
-            <input type="text" class="form-control" id="rpName" placeholder="Name" name="name">
-          </div>
-          <div class="form-group">
-            <label for="rpGender">Gender</label>
-            <input type="text" class="form-control" id="rpGender" placeholder="Gender" name="gender">
-          </div>
-          <div class="form-group">
-            <label for="rpBirthday">Birthday</label>
-            <input type="text" class="form-control" id="rpBirthday" placeholder="Birthday" name="birthday">
-          </div>
-          <div class="form-group">
-            <label for="rpHealthcard">Healthcard Nubmer</label>
-            <input type="text" class="form-control" id="rpHealthcard" placeholder="Healthcard Number" name="healthcard">
-          </div>
-         
+
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
       </div>
@@ -69,16 +70,18 @@ $app->get(
     $(document).ready(function(){
       $('#patientRegisterForm').ajaxForm();
 
-      // attach handler to form's submit event 
-      $('#patientRegisterForm').submit(function() { 
-          // submit the form 
-          $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, form)  { 
-              alert('status: ' + statusText + '\n\nresponseText: \n' + responseText + 
-                  '\n\nThe output div should have already been updated with the responseText.'); 
-            } 
-          }); 
-          // return false to prevent normal browser submit and page navigation 
-          return false; 
+      // attach handler to form's submit event
+      $('#patientRegisterForm').submit(function() {
+          // submit the form
+          $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, form)  {
+                var resp = $.parseJSON( responseText );
+                if (resp.response && resp.response == "error") {
+                  $('.alert-danger').text(resp.message).show();
+                }
+            }
+          });
+          // return false to prevent normal browser submit and page navigation
+          return false;
       });
 
     });

@@ -30,17 +30,23 @@ $app->get(
         </div>
 
         <div class="row">
-            <h2 class="col-md-4">Providing the best possible care requires having the most recent information</h2>
+            <h2>Providing the best possible care requires having the most recent information</h2>
         </div>
 
         <div class="row">
             <p>Sign Up!</p>
         </div>
 
+        <div class="row">
+          <p>$10 per month</p>
+          <p>Free</p>
+        </div>
+
         <div class="btn-group buttons" role="group" aria-label="...">
           <a href="patient_register"><button type="button" class="btn btn-default btn-group-lg">Patients</button></a>
           <a href="doctor_register"><button type="button" class="btn btn-default btn-group-lg">Doctors</button></a>
         </div>
+
     </div>
 
    $footer_template
