@@ -6,12 +6,24 @@ $app->post(
 		$request = $app->request();
 		$data = $request->params();
 
+    $photo = "";
+
+    $files = $_FILES['photo'];
+		$name = uniqid('img-'.date('Ymd').'-'.$files['name']);
+		if (move_uploaded_file($files['tmp_name'], 'images/' . $name) === true) {
+		  $photo = 'photos/' . $name;
+    }
+
     $email = $data['email'];
     $password = $data['password'];
     $password2 = $data['confirm_password'];
-    $name = $data['name'];
+    $first_name = $data['first_name'];
+    $last_name = $data['last_name'];
+    $name = $first_name." ".$last_name;
     $specialty = $data['specialty'];
-    $location = $data['location'];
+    $city = $data['city'];
+    $country = $data['country'];
+    $location = $city.", ".$country;
     $cpso = $data['cpso'];
     $hospital = $data['hospital'];
 
@@ -54,9 +66,9 @@ $app->post(
     $password = md5($password);
 
     $db->exec("INSERT INTO doctors
-    (`email`, `password`, `name`, `specialty`, `location`, `cpso`, `hospital`)
+    (`photo`, `email`, `password`, `name`, `specialty`, `location`, `cpso`, `hospital`)
     VALUES
-    ('$email', '$password', '$name', '$specialty', '$location', '$cpso', '$hospital')");
+    ('$photo', '$email', '$password', '$name', '$specialty', '$location', '$cpso', '$hospital')");
 
     $response = array(
       "response"=>"success", "message"=>"email: ".$email." registered."

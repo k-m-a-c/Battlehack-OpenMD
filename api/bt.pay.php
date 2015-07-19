@@ -8,7 +8,7 @@ $app->post(
     Braintree_Configuration::publicKey('b5g3zbfm4pxyppc8');
     Braintree_Configuration::privateKey('d026b5dee9b6aa1301a211f1d2481451');
 
-    $patientId = $_POST["patient_id"];
+    $patientId = $_SESSION['user_id'];
     $nonce = $_POST["payment_method_nonce"];
 
     $result = Braintree_Transaction::sale([
