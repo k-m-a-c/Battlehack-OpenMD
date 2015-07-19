@@ -30,7 +30,7 @@ $app->get(
         </div>
 
         <div class="row">
-            <h2>Patients: Get better care</h2>
+            <h2>Patients: Receive more personalized care</h2>
             <h2>Doctors: Get real-time patient information</h2>
         </div>
 
