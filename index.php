@@ -18,6 +18,7 @@ require('pages/home.php');
 require('pages/login.php');
 require('pages/patient_register.php');
 require('pages/doctor_register.php');
+require('pages/doctor_patient_list.php');
 require('pages/health_status_update.php');
 require('pages/admin.panel.php');
 

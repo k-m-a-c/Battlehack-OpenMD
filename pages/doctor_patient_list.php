@@ -1,7 +1,7 @@
 <?php
 $app->get(
 
-  '/doctor_register', function() {
+  '/doctor_patient_list', function() {
 
   require('header.php');
   require('nav.php');
