@@ -23,13 +23,11 @@ $app->post(
         SET nonce='$nonce', didPay='1'
         WHERE id = '$patientId'");
 
-      $response = array('response'=>'success','message'=>'you have successfully paid!');
-      echo json_encode($response);
-      exit;
+      global $app;
+      $app->redirect('/patient/home');
     } else {
-      $response = array('response'=>'error','message'=>'you werent able to pay!');
-      echo json_encode($response);
-      exit;
+      global $app;
+      $app->redirect('/');
     }
   }
 );
