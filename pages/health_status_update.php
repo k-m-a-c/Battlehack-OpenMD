@@ -76,7 +76,7 @@ $app->get(
    <script>
     $(document).ready(function(){
       $('#healthStatusUpdateForm').ajaxForm();
-
+      /*
       // attach handler to form's submit event
       $('#healthStatusUpdateForm').submit(function() {
           // submit the form
@@ -92,6 +92,7 @@ $app->get(
           // return false to prevent normal browser submit and page navigation
           return false;
       });
+      */
 
     });
     </script>
