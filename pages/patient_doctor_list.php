@@ -116,7 +116,7 @@ $app->get(
       //get all doctors and append to #addDoctor div
       $.getJSON( "api/patient/home", function( data ) {
         var items = [];
-        $.each( data, function( n, key, val ) {
+        $.each( data, function( key, val ) {
           items.push( "<li id='" + key + "'>" + val + "</li>" );
         });
 
