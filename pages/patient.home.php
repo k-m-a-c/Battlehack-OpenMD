@@ -154,7 +154,7 @@ $app->get('/api/patient/my/doctors', function() {
   $data = array();
 
   foreach($db->query("SELECT * FROM doctors
-  JOIN doctorspatients ON accepted_doctors.doctorId = doctors.id
+  JOIN accepted_doctors ON accepted_doctors.doctorId = doctors.id
   WHERE accepted_doctors.patientId = '$patientId'
   GROUP BY doctors.id") as $row) {
     $d = array(
