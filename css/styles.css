@@ -54,7 +54,8 @@ h3 {
 
 .brand-img{
 	margin-top: 1.25rem;
-	position: absolute;
+	margin-right: 1.25rem;
+	float: left;
 }
 
 
@@ -74,7 +75,6 @@ h3 {
 }
 
 .navbar-brand {
-	position: absolute;
 	left: 3rem;
 }
 
