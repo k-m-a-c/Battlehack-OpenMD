@@ -5,7 +5,7 @@ $app->get(
 
     $doctorId = $_SESSION['user_id'];
 
-    $db->exec("INSERT INTO doctors
+    $db->exec("INSERT INTO doctorspatient
     (`doctorId`, `patientId`)
     VALUES
     ('$doctorId', '$patientId')");

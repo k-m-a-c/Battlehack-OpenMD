@@ -179,6 +179,7 @@ $app->get(
             // submit the form
             $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, form)  {
                   var resp = $.parseJSON( responseText );
+                  console.log(resp);
                   if (resp.response && resp.response == "error") {
                     $('.alert-danger').text(resp.message).show();
                   }
