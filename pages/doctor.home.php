@@ -1,5 +1,8 @@
 <?php
 $app->get('/doctor/home', function() {
+  global $app;
+  $app->redirect('/doctor_patient_list');
+
   require('header.php');
   require('nav-internal.php');
   require('footer.php');
