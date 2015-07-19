@@ -28,24 +28,24 @@ $app->get(
     <div id="doctor-patient-list-nav" class="container-fluid">
       <h1>Your Patient List</h1>
       <ul class="nav nav-tabs inline-list">
-        <li class="nav-tab active"><a href="#yourPatients" aria-controls="yourPatients" role="tab" data-toggle="tab">Your Patients</a></li>
+        <li class="nav-tab active"><a href="#yourPatients" aria-controls="yourPatients" role="tab" data-toggle="tab" id="yourPatients-tab">Your Patients</a></li>
 
-        <li class="nav-tab"><a href="#addPatient" aria-controls="addPatient" role="tab" data-toggle="tab">Add a Patient</a></li>
+        <li class="nav-tab"><a href="#addPatient" aria-controls="addPatient" role="tab" data-toggle="tab" id="addPatient-tab">Add a Patient</a></li>
 
-        <li class="nav-tab"><a href="#patientRequests" aria-controls="patientRequests" role="tab" data-toggle="tab">Patient Requests</a></li>
+        <li class="nav-tab"><a href="#patientRequests" aria-controls="patientRequests" role="tab" data-toggle="tab" id="patientRequests-tab">Patient Requests</a></li>
       </ul>
     </div>
 
     <!-- TAB PANES -->
     <div id="doctor-patient-list-panes" class="container-fluid">
 
-      <div role="tabpanel" class="tab-pane" id="yourPatients">
+      <div role="tabpanel" class="tab-pane fade active in" aria-labelled-by="yourPatients-tab" id="yourPatients">
         <p>All ze patients!</p>
       </div>
-      <div role="tabpanel" class="tab-pane" id="addPatient">
+      <div role="tabpanel" class="tab-pane" id="addPatient" aria-labelled-by="addPatient-tab">
         <p>Add a patient</p>
       </div>
-      <div role="tabpanel" class="tab-pane" id="patientRequests">
+      <div role="tabpanel" class="tab-pane" id="patientRequests" aria-labelled-by="patientRequests-tab">
         <p>Respond to patient requests</p>
       </div>
     </div>
