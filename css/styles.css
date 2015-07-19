@@ -177,3 +177,14 @@ h3 {
 	margin-top: 46px;
 }
 
+/* Thanks */
+
+#thank-you {
+	width: 33%;
+	text-align: center;
+}
+
+#thank-you .alert {
+	display: block;
+}
+

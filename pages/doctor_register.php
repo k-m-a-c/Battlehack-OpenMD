@@ -93,23 +93,22 @@ $app->get(
    $footer_template
 
    <script>
+
       //ajax form submit
       $(document).ready(function(){
-        $('#doctorRegisterForm').ajaxForm();
-
-        // attach handler to form's submit event
-        $('#doctorRegisterForm').submit(function() {
-            // submit the form
-            $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, form)  {
-                  var resp = $.parseJSON( responseText );
-                  if (resp.response && resp.response == "error") {
-                    $('.alert-danger').text(resp.message).show();
-                  }
-              }
-            });
-            // return false to prevent normal browser submit and page navigation
-            return false;
+        $('#patientRegisterForm').ajaxForm({
+          success: function(responseText)  {
+                var resp = $.parseJSON( responseText );
+                if (resp.response && resp.response == "error") {
+                  $('.alert-danger').text(resp.message).show();
+                } else {
+                  location.href = "thank_you";
+                }
+                return false;
+            } 
         });
+      });
+      
     </script>
 
   </body>
