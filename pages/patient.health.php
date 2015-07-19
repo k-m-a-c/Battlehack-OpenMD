@@ -4,7 +4,7 @@ $app->get(
   '/patient_health', function() {
 
   require('header.php');
-	require('nav.php');
+	require('nav-internal.php');
 	require('footer.php');
   $user_id = $_SESSION['user_id'];
 

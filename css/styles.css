@@ -1,7 +1,14 @@
 
 /*GLOBALS*/
 
+/* NAV */
+.navbar .patient-home, .navbar .doctor-home {
+	display: none;
+}
 
+.navbar .patient-home.patient, .navbar .doctor-home.doctor {
+	display: initial;
+}
 
 
 /* SPLASH PAGE */
