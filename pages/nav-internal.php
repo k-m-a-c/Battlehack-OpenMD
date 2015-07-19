@@ -1,5 +1,7 @@
 <?php
+$userType = $_SESSION['user_type'];
 $nav_template = <<<HTML
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -13,13 +15,13 @@ $nav_template = <<<HTML
       <a class="navbar-brand" href="#">OpenMD</a>
     </div>
 
-    <div class="{$_SESSION['user_type']} doctor-link collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="$userType doctor-link collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="doctor_patient_list">Home</a></li>
       </ul>
     </div>
 
-    <div class="{$_SESSION['user_type']} patient-link collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+    <div class="$userType patient-link collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="patient_health">Home</a></li>
       </ul>
