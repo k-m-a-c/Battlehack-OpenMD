@@ -1,5 +1,54 @@
 
 /*GLOBALS*/
+html {
+	height: 100% !important;
+}
+
+body {
+	height: 100%;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	font-weight: 200;
+	font-size: 16px;
+	line-height: 28px;
+	background-color: #ffffff;
+	color: #777777;
+	overflow-x: hidden;
+}
+
+h2 {
+	font-weight: 400;
+
+}
+
+/*CONTAINER*/
+.container {
+	position: relative;
+	background-image: url(bg.jpg);
+	background-position: bottom center;
+	background-repeat: repeat-x;
+	overflow: hidden;
+}
+
+/*BUTTONS*/
+
+.btn {
+
+}
+
+.btn-lg {
+
+}
+
+.btn-primary {
+
+}
+
+
+
+/*BRANDING*/
+.logo {
+	padding-top: 5rem;
+}
 
 /* NAV */
 .navbar .patient-home, .navbar .doctor-home {
