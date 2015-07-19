@@ -92,9 +92,11 @@ $app->post(
     $password = md5($password);
 
     $db->exec("INSERT INTO patients
-    (`email`, `password`, `name`, `gender`, `birthday`, `healthcard`)
+    (`email`, `password`, `name`, `gender`, `birthday`, `healthcard`, `city`, `country`, `medName`, `medDosage`, `medFreq`
+    `surgeryType`, `surgeryDate`, `allergy`, `condition`)
     VALUES
-    ('$email', '$password', '$name', '$gender', '$birthday', '$healthcard')");
+    ('$email', '$password', '$name', '$gender', '$birthday', '$healthcard', '$city', '$country', '$drugs_list', '$dosage_list',
+      '$freq_list', '$surgery_list', '$surgeryDate_list', '$allergy_list', '$condition_list')");
 
     $response = array(
       "response"=>"success", "message"=>"patient email: ".$email." registered."

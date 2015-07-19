@@ -23,6 +23,7 @@ require('pages/admin.panel.php');
 require('api/doctor.register.php');
 require('api/doctor.login.php');
 require('api/patient.register.php');
+require('api/patient.login.php');
 
 require('api/patient.new.status.php');
 

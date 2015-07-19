@@ -1,6 +1,6 @@
 <?php
 $app->post(
-  '/api/login/doctor', function() {
+  '/api/login/patient', function() {
     require('connect.php');
     global $app;
 		$request = $app->request();
