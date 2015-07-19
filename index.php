@@ -29,6 +29,7 @@ require('api/patient.login.php');
 require('api/logout.php');
 
 require('api/doctor.add.patient.php');
+require('api/patient.add.doctor.php');
 require('pages/doctor.home.php');
 require('pages/display.patient.php');
 require('pages/patient.home.php');
