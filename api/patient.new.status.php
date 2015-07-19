@@ -6,6 +6,8 @@ $app->get(
     $request = $app->request();
     $data = $request->params();
 
+    $patientId = $_SESSION['user_id'];
+
     $physicalHealth = $data['physicalHealth'];
     $mentalHealth = $data['mentalHealth'];
     $bodyTemp = $data['bodyTemp'];
