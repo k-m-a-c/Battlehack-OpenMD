@@ -97,13 +97,13 @@ $app->get(
    <script>
       //ajax form submit
       $(document).ready(function(){
-        $('#patientLoginForm').ajaxForm(
+        $('#patientLoginForm').ajaxForm({
           success: function(responseText)  {
               submitHandler( response );
               return false;
           }
         );
-        $('#doctorLoginForm').ajaxForm(
+        $('#doctorLoginForm').ajaxForm({
           success: function(responseText)  {
               submitHandler( response );
               return false;
