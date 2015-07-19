@@ -36,7 +36,7 @@ $app->post(
     $_SESSION['user_type'] = "patient";
     $_SESSION['user_id'] = $id;
     $response = array(
-      "response"=>"success", "message"=>"logged in as ".$email."."
+      "response"=>"success", "message"=>"logged in as ".$email.".", "user_type" => $_SESSION['user_type'], "user_id" => $_SESSION['user_id']
     );
     echo json_encode($response);
     exit;

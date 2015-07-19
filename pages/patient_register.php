@@ -42,11 +42,11 @@ $app->get(
           <div class="row">
             <div class="form-group col-md-4">
               <label for="rpName">First Name</label>
-              <input type="text" class="form-control" id="rpName" placeholder="Name" name="name">
+              <input type="text" class="form-control" id="rpName" placeholder="Name" name="first_name">
             </div>
             <div class="form-group col-md-4">
               <label for="rpName">Last Name</label>
-              <input type="text" class="form-control" id="rpName" placeholder="Name" name="name">
+              <input type="text" class="form-control" id="rpName" placeholder="Name" name="last_name">
             </div>
           </div>
           <div class="row">

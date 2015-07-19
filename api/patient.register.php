@@ -7,12 +7,59 @@ $app->post(
 		$data = $request->params();
 
     $email = $data['email'];
-    $name = $data['name'];
+    $first_name = $data['first_name'];
+    $last_name = $data['last_name'];
+    $name = $first_name." ".$last_name;
     $password = $data['password'];
     $password2 = $data['confirm_password'];
     $gender = $data['gender'];
     $birthday = $data['birthday'];
     $healthcard = $data['healthcard'];
+
+    $city = $data['city'];
+    $country = $data['country'];
+
+    $drugs = $data['med_name'];
+    $drugs_list = "";
+    foreach($drugs AS $drug) {
+      $drugs_list .= $drug.",";
+    }
+
+    $dosage = $data['med_dosage'];
+    $dosage_list = "";
+    foreach($dosage AS $dose) {
+      $dosage_list .= $dose.",";
+    }
+
+    $freq = $data['med_freq'];
+    $freq_list = "";
+    foreach($freq AS $amount) {
+      $freq_list .= $amount.",";
+    }
+
+    $surgery = $data['surgery_type'];
+    $surgery_list = "";
+    foreach($surgery AS $procedure) {
+      $surgery_list .= $procedure.",";
+    }
+
+    $surgeryDate = $data['surgery_date'];
+    $surgeryDate_list = "";
+    foreach($surgeryDate AS $surgery) {
+      $surgeryDate_list .= $surgery.",";
+    }
+
+    $allergy = $data['allergy'];
+    $allergy_list = "";
+    foreach($allergy AS $allergy_one) {
+      $allergy_list .= $allergy_one.",";
+    }
+
+    $condition = $data['condition'];
+    $condition_list = "";
+    foreach($condition AS $condition_one) {
+      $condition_list .= $condition_one.",";
+    }
 
     if (strlen($email) < 1 OR strlen($name) < 1 OR strlen($password) < 1) {
       $response = array(
