@@ -99,13 +99,13 @@ $app->get(
       $(document).ready(function(){
         $('#patientLoginForm').ajaxForm({
           success: function(responseText)  {
-              submitHandler( response );
+              submitHandler( responseText );
               return false;
           }
         });
         $('#doctorLoginForm').ajaxForm({
           success: function(responseText)  {
-              submitHandler( response );
+              submitHandler( responseText );
               return false;
           }
         }); 
