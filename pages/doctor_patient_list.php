@@ -28,11 +28,11 @@ $app->get(
     <div id="doctor-patient-list-nav" class="container-fluid">
       <h1>Your Patient List</h1>
       <ul class="nav nav-tabs inline-list">
-        <li class="nav-tab active"><a href="#" role="tab" data-toggle="tab">Your Patients</a></li>
+        <li class="nav-tab active"><a href="#yourPatients" aria-controls="yourPatients" role="tab" data-toggle="tab">Your Patients</a></li>
 
-        <li class="nav-tab active"><a href="#" role="tab" data-toggle="tab">Add a Patient</a></li>
+        <li class="nav-tab active"><a href="#addPatient" aria-controls="addPatient" role="tab" data-toggle="tab">Add a Patient</a></li>
 
-        <li class="nav-tabactive"><a href="#" role="tab" data-toggle="tab">Patient Requests</a></li>
+        <li class="nav-tabactive"><a href="#patientRequests" aria-controls="patientRequests" role="tab" data-toggle="tab">Patient Requests</a></li>
       </ul>
     </div>
 
