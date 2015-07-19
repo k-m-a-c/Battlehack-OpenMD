@@ -97,6 +97,18 @@ $app->get(
         $(this).tab('show')
       });
 
+      $.getJSON( "/doctor/home", function( data ) {
+        var items = [];
+        $.each( data, function( key, val ) {
+          items.push( "<li id='" + key + "'>" + val + "</li>" );
+        });
+
+        $( "<ul/>", {
+          "class": "patient",
+          html: items.join( "" )
+        }).appendTo( "#patient" );
+      });
+
     </script>
   </body>
 </html>
