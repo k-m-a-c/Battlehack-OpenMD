@@ -1,6 +1,9 @@
 <?php
 $app->get(
 
+  // THIS IS THE LIST OF PATIENTS
+  // THE PAGE IS INTENDED FOR USE BY DOCTORS
+
   '/doctor_patient_list', function() {
 
   require('header.php');
