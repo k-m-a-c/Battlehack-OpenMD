@@ -33,10 +33,6 @@ $app->get(
       <p>Click one of the tabs below to browse your existing doctors, add new
       doctors, and respond to doctor requests.</p>
 
-      if ($('ul#navList').length == 0)
-        print "<p>Add a doctor</p>"
-        <button id="emptyStateAddDoctor"><a href="#">See All Doctors</a></button>
-
       <ul class="nav nav-tabs inline-list" role="tablist" id="navList">
 
         <li class="nav-tab active">
