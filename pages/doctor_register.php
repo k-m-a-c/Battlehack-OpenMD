@@ -33,6 +33,13 @@ $app->get(
         <div class="alert alert-danger" role="alert"></div>
         <form id="doctorRegistrationForm" action="/api/new/doctor" method="POST">
           <div class="row">
+            <div class="form-group col-md-4">
+              <label for="exampleInputFile">Profile Photo</label>
+              <input type="file" id="exampleInputFile" name="photo">
+              <p class="help-block">Upload a photo of yourself here</p>
+            </div>
+          </div>
+          <div class="row">
             <div class="form-group col-xs-6">
               <label for="rpName">First Name</label>
               <input type="text" class="form-control" id="rpName" placeholder="Name" name="name">
