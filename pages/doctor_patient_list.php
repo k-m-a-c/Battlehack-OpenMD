@@ -27,7 +27,7 @@ $app->get(
     <!-- TABBED NAV -->
     <div id="doctor-patient-list-nav" class="container-fluid">
       <h1>Your Patient List</h1>
-      <ul class="nav nav-tabs inline-list">
+      <ul class="nav nav-tabs inline-list" id="patient-list">
         <li class="nav-tab active">
           <a href="#yourPatients" aria-controls="yourPatients" role="tab" data-toggle="tab" id="yourPatients-tab">Your Patients</a>
         </li>
@@ -59,14 +59,10 @@ $app->get(
    $footer_template
 
     <script>
-      $('#nav-tabs a').click(function (e) {
+      $('#patient-list a').click(function (e) {
         e.preventDefault()
         $(this).tab('show')
       });
-
-      $('#myTabs li:eq(0) a').tab('show') // Select first tab (0-indexed)
-      $('#myTabs li:eq(1) a').tab('show') // Select second tab (0-indexed)
-      $('#myTabs li:eq(2) a').tab('show') // Select third tab (0-indexed)
 
     </script>
   </body>
