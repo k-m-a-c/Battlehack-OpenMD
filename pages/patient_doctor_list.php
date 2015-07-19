@@ -50,7 +50,7 @@ $app->get(
     </div>
 
     <!-- TAB PANES -->
-    <div id="patient-doctor-list-panes" class="container-fluid tab-content">
+    <div id="patientDoctorListPanes" class="container-fluid tab-content">
 
       <div role="tabpanel" class="tab-pane fade active in" aria-labelled-by="yourDoctors-tab" id="yourDoctors">
 
@@ -92,9 +92,42 @@ $app->get(
    $footer_template
 
     <script>
+      //handle tab navigation
       $('#navList a').click(function (e) {
         e.preventDefault()
         $(this).tab('show')
+      });
+
+      //handle automatic tab switch on empty list state button
+      $('#navList a').click(function (e) {
+        e.preventDefault()
+        $('#navList li:eq(1) a').tab('show');
+      })
+
+      //get all doctors and append to #addDoctor div
+      $.getJSON( "api/patient/home", function( data ) {
+        var items = [];
+        $.each( data, function( key, val ) {
+          items.push( "<li id='" + key + "'>" + val + "</li>" );
+        });
+
+        $( "<ul/>", {
+          "class": "doctor",
+          html: items.join( "" )
+        }).appendTo( "#addDoctor" );
+      });
+
+      //get all doctor requests and append to #doctorRequests div
+      $.getJSON( "api/patient/home", function( data ) {
+        var items = [];
+        $.each( data, function( key, val ) {
+          items.push( "<li id='" + key + "'>" + val + "</li>" );
+        });
+
+        $( "<ul/>", {
+          "class": "doctor-request",
+          html: items.join( "" )
+        }).appendTo( "#doctorRequests" );
       });
 
     </script>

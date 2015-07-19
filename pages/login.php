@@ -53,7 +53,7 @@ $app->get(
             <div class="row">
               <div class="form-group col-md-12">
                 <label for="pWord">Password</label>
-                <input type="text" class="form-control" id="pWord" placeholder="" name="password">
+                <input type="password" class="form-control" id="pWord" placeholder="" name="password">
               </div>
             </div>
 

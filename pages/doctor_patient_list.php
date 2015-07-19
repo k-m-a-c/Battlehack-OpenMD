@@ -65,27 +65,9 @@ $app->get(
       </div>
 
       <div role="tabpanel" class="tab-pane fade in" id="addPatient" aria-labelled-by="addPatient-tab">
-
-        <div class="patient inline-list" id="patient">
-          <span>First Name</span>
-          <span>Second Name</span>
-          <span>City</span>
-          <span>Country</span>
-          <button><a href="#">Add as Your Patient</a></button>
-        </div>
-
       </div>
 
       <div role="tabpanel" class="tab-pane fade in" id="patientRequests" aria-labelled-by="patientRequests-tab">
-
-        <div class="patient-request inline-list" id="patient-request">
-          <span>First Name</span>
-          <span>Second Name</span>
-          <span>City</span>
-          <span>Country</span>
-          <button><a href="#">Accept Patient</a></button>
-        </div>
-
       </div>
     </div>
 
@@ -95,6 +77,32 @@ $app->get(
       $('#navList a').click(function (e) {
         e.preventDefault()
         $(this).tab('show')
+      });
+
+      //get all patients, append results to #addPatient div
+      $.getJSON( "api/doctor/home", function( data ) {
+        var items = [];
+        $.each( data, function( key, val ) {
+          items.push( "<li id='" + key + "'>" + val + "</li>" );
+        });
+
+        $( "<ul/>", {
+          "class": "patient",
+          html: items.join( "" )
+        }).appendTo( "#addPatient" );
+      });
+
+      //get all patient requests, append results to #patientRequests div
+      $.getJSON( "api/doctor/requests", function( data ) {
+        var items = [];
+        $.each( data, function( key, val ) {
+          items.push( "<li id='" + key + "'>" + val + "</li>" );
+        });
+
+        $( "<ul/>", {
+          "class": "patient-request",
+          html: items.join( "" )
+        }).appendTo( "#patientRequests" );
       });
 
     </script>
