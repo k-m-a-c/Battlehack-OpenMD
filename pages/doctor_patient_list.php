@@ -90,7 +90,7 @@ $app->get(
           html += "</tr>";
         });
         html += "</table>";
-        $('#addPatient').html(html);
+        $('#yourPatients').html(html);
       });
 
       $.get('/api/patient/home', function(data) {
@@ -99,8 +99,8 @@ $app->get(
         $.each(data, function(i,d) {
           html += "<tr>";
             html += "<td><a href='"+d.doctor_profile_link+"'>"+d.name+"</a></td>";
-            html += "<td>"+d.city+" "+d.country+"</td>";
-            html += "<td>"+d.healthcard+"</td>";
+            html += "<td>"+d.location+"</td>";
+            html += "<td>"+d.hospital+"</td>";
             html += "<td><a href='"+d.request_doctor_link+"'>Request Doctor</a></td>";
           html += "</tr>";
         });
@@ -114,8 +114,8 @@ $app->get(
         $.each(data, function(i,d) {
           html += "<tr>";
             html += "<td><a href='"+d.doctor_profile_link+"'>"+d.name+"</a></td>";
-            html += "<td>"+d.city+" "+d.country+"</td>";
-            html += "<td>"+d.healthcard+"</td>";
+            html += "<td>"+d.location+"</td>";
+            html += "<td>"+d.hospital+"</td>";
             html += "<td><a href='"+d.accept_doctor_link+"'>Accept Doctor</a></td>";
           html += "</tr>";
         });
@@ -221,7 +221,7 @@ $app->get(
           html += "</tr>";
         });
         html += "</table>";
-        $('#addPatient').html(html);
+        $('#yourPatients').html(html);
       });
 
       $.get('/api/doctor/home', function(data) {
