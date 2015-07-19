@@ -25,7 +25,7 @@ $app->get(
   $nav_template
 
     <div id="patient-creates-health-form" class="form-page">
-      <h1 class="col-md-4">Create your Health Status Update</h1>
+      <h1>Create your Health Status Update</h1>
 
       <div class="col-md-4">
         <form action="/api/new/patient" method="POST">
@@ -62,7 +62,7 @@ $app->get(
 
           <div class="form-group">
             <label for="rpAdditionalInformation">Additional Information</label>
-            <input type="number" class="form-control" id="rpAdditionalInformation" placeholder="Say more about how you're feeling today!">
+            <input type="text" class="form-control" id="rpAdditionalInformation" placeholder="Say more about how you're feeling today!">
           </div>
 
           <button type="submit" class="btn btn-default">Submit</button>

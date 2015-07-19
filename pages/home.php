@@ -38,8 +38,7 @@ $app->get(
         </div>
 
         <div class="row">
-          <p>$10 per month</p>
-          <p>Free</p>
+          <p>$10 per month for patients, free for doctors.<p>
         </div>
 
         <div class="btn-group buttons" role="group" aria-label="...">
