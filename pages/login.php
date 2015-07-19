@@ -97,41 +97,45 @@ $app->get(
    <script>
       //ajax form submit
       $(document).ready(function(){
-        $('#patientLoginForm').ajaxForm();
-        $('#doctorLoginForm').ajaxForm();
+        $('#patientLoginForm').ajaxForm({
+          success: function(responseText)  {
+              submitHandler( response );
+              return false;
+          }
+        );
+        $('#doctorLoginForm').ajaxForm({
+          success: function(responseText)  {
+              submitHandler( response );
+              return false;
+          }
+        );
 
-        // attach handler to form's submit event
-        $('#patientLoginForm').submit(submitHandler);
-        $('#doctorLoginForm').submit(submitHandler);
-
-        function submitHandler() {
+        function submitHandler( response ) {
             // submit the form
-            $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, form)  {
-                  var resp = $.parseJSON( responseText );
-                  if (resp.response && resp.response == "error") {
-                    $('.alert-danger').text(resp.message).show();
+              var resp = $.parseJSON( response );
+              if (resp.response && resp.response == "error") {
+                $('.alert-danger').text(resp.message).show();
+              } else {
+                  $('.alert-danger').hide();
+                  if ( resp.user_type == "patient" ){
+                    $.get( "/api/check/patient/payed", function( resp ) {
+                        console.log('resp: ' + resp);
+                        if ( resp == "0" ) {
+                          $.get( "/get/braintree/token", function( data ) {
+                            loadPayment(data);
+                          });
+                        } else {
+                          console.log('redirect to main')
+                          // redirect to main patient page
+                          location.href = location.origin + '/api/patient/home';
+                        }
+                    });
                   } else {
-                    $('.alert-danger').hide();
-                    if ( resp.user_type == "patient" ){
-                      $.get( "/api/check/patient/payed", function( resp ) {
-                          console.log('resp: ' + resp);
-                          if ( resp == "0" ) {
-                            $.get( "/get/braintree/token", function( data ) {
-                              loadPayment(data);
-                            });
-                          } else {
-                            console.log('redirect to main')
-                            // redirect to main patient page
-                            location.href = location.origin + '/api/patient/home';
-                          }
-                      });
-                    } else {
-                      console.log('redirect to main')
-                      location.href = location.origin + '/doctor/home';
-                    }
+                    console.log('redirect to main')
+                    location.href = location.origin + '/doctor/home';
                   }
-              }
-            });
+                }
+            }
             // return false to prevent normal browser submit and page navigation
             return false;
         }

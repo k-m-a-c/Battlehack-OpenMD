@@ -10,6 +10,10 @@
 	display: initial;
 }
 
+.navbar-header {
+	background-color: #fff;
+}
+
 
 /* SPLASH PAGE */
 
@@ -45,6 +49,11 @@
 }
 
 .form-page .alert-danger {
+	display: none;
+	font-weight: bold;
+}
+
+.form-page .alert-success {
 	display: none;
 	font-weight: bold;
 }
