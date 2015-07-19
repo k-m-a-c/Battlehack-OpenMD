@@ -25,7 +25,7 @@ $app->get(
   $nav_template
 
     <div id="health-status-update" class="form-page">
-      <h1>Create your Health Status Update</h1>
+      <h1>OpenMD | Create your Health Status Update</h1>
 
       <div>
         <div class="alert alert-danger" role="alert"></div>
