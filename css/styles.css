@@ -35,3 +35,7 @@
 	display: none;
 	font-weight: bold;
 }
+
+.form-page label {
+	white-space: nowrap;
+}
