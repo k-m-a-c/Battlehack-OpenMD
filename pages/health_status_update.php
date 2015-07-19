@@ -24,11 +24,12 @@ $app->get(
 
   $nav_template
 
-    <div id="patient-creates-health-form" class="form-page">
+    <div id="health-status-update" class="form-page">
       <h1>Create your Health Status Update</h1>
 
-      <div class="col-md-4">
-        <form action="/api/new/patient" method="POST">
+      <div>
+        <div class="alert alert-danger" role="alert"></div>
+        <form id="healthStatusUpdateForm" action="/api/new/patient" method="POST">
 
           <div class="form-group">
             <label for="rpPhysicalHealthScore">Physical Health Score</label>
