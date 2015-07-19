@@ -33,21 +33,28 @@ $app->get(
         <div class="alert alert-danger" role="alert"></div>
         <form id="patientRegisterForm" action="/api/new/patient" method="POST">
           <div class="row">
-            <div class="form-group col-xs-6">
+            <div class="form-group col-md-4">
+              <label for="exampleInputFile">Profile Photo</label>
+              <input type="file" id="exampleInputFile" name="photo">
+              <p class="help-block">Upload a photo of yourself here</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-4">
               <label for="rpName">First Name</label>
               <input type="text" class="form-control" id="rpName" placeholder="Name" name="name">
             </div>
-            <div class="form-group col-xs-6">
+            <div class="form-group col-md-4">
               <label for="rpName">Last Name</label>
               <input type="text" class="form-control" id="rpName" placeholder="Name" name="name">
             </div>
           </div>
           <div class="row">
-            <div class="form-group col-xs-6">
+            <div class="form-group col-md-4">
               <label for="rpBirthday">Birthday</label>
               <input type="date" class="form-control" id="rpBirthday" placeholder="Birthday" name="birthday">
             </div>
-            <div class="form-group col-xs-6">
+            <div class="form-group col-md-4">
               <label for="rpGender">Gender</label><br/>
               <label class="radio-inline">
                 <input type="radio" name="gender" id="inlineRadio1" value="Male"> Male
@@ -61,33 +68,33 @@ $app->get(
             </div>
           </div> 
           <div class="row">
-            <div class="form-group col-xs-6">
+            <div class="form-group col-md-4">
               <label for="rpHealthcard8">City</label>
               <input type="text" class="form-control" id="rpHealthcard8" placeholder="City" name="city">
             </div>
-            <div class="form-group col-xs-6">
+            <div class="form-group col-md-4">
               <label for="rpHealthcard8">Country</label>
               <input type="text" class="form-control" id="rpHealthcard8" placeholder="Country" name="country">
             </div>
           </div>
           <div class="row">
-            <div class="form-group col-xs-6">
+            <div class="form-group col-md-4">
               <label for="rpHealthcard">Healthcard Nubmer</label>
               <input type="text" class="form-control" id="rpHealthcard" placeholder="Healthcard Number" name="healthcard">
             </div>
           </div>
           <div class="row">
-            <div class="form-group col-xs-6">
+            <div class="form-group col-md-4">
               <label for="rpEmail">Email address</label>
               <input type="email" class="form-control" id="rmEmail" placeholder="Email" name="email">
             </div>
           </div>
           <div class="row">
-            <div class="form-group col-xs-6">
+            <div class="form-group col-md-4">
               <label for="rpPassword1">Password</label>
               <input type="password" class="form-control" id="rpPassword1" placeholder="Password" name="password">
             </div>
-            <div class="form-group col-xs-6">
+            <div class="form-group col-md-4">
               <label for="rpPassword2">Confirm Password</label>
               <input type="password" class="form-control" id="rpPassword2" placeholder="Password" name="confirm_password">
             </div>
@@ -100,59 +107,59 @@ $app->get(
           <p>Please list all the medications you are currently taking</p>
 
           <div class="row">
-            <div class="form-group col-xs-3">
+            <div class="form-group col-md-3">
               <label for="">Name of drug</label>
               <input type="text" class="form-control" id="" name="med_name[]">
             </div>
-            <div class="form-group col-xs-3">
+            <div class="form-group col-md-3">
               <label for="">Dosage</label>
               <input type="text" class="form-control" id="" name="med_dosage[]">
             </div>
-            <div class="form-group col-xs-3">
+            <div class="form-group col-md-3">
               <label for="">Frequency (weekly)</label>
               <input type="text" class="form-control" id="" name="med_freq[]">
             </div>
           </div>
-          <div class="btn btn-default col-xs-3 add-row">+ Add a medication</div><br/><br/><br/>
+          <div class="btn btn-default col-md-3 add-row">+ Add a medication</div><br/><br/><br/>
 
           <h4>Past Surgeries</h4>
           <p>Please list all the surgeries you have had</p>
 
           <div class="row">
-            <div class="form-group col-xs-3">
+            <div class="form-group col-md-3">
               <label for="">Type of Procedure</label>
               <input type="text" class="form-control" id="" name="surgery_type[]">
             </div>
-            <div class="form-group col-xs-4">
+            <div class="form-group col-md-4">
               <label for="">Date of Procedure</label>
               <input type="date" class="form-control" id="" name="surgery_date[]">
             </div>
           </div>
-          <div class="btn btn-default col-xs-3 add-row">+ Add a surgery</div><br/><br/><br/>
+          <div class="btn btn-default col-md-3 add-row">+ Add a surgery</div><br/><br/><br/>
 
 
           <h4>Allergies</h4>
           <p>Please list all the allergies you have</p>
 
           <div class="row">
-            <div class="form-group col-xs-6">
+            <div class="form-group col-md-4">
               <label for="">Name of allergy</label>
               <input type="text" class="form-control" id="" name="allergy[]">
             </div>
           </div>
-          <div class="btn btn-default col-xs-3 add-row">+ Add an allergy</div><br/><br/><br/>
+          <div class="btn btn-default col-md-3 add-row">+ Add an allergy</div><br/><br/><br/>
 
 
           <h4>Pre-existing conditions</h4>
           <p>Please list all of your existing medical conditions</p>
 
           <div class="row">
-            <div class="form-group col-xs-6">
+            <div class="form-group col-md-4">
               <label for="">Name of condition</label>
               <input type="text" class="form-control" id="" name="condition[]">
             </div>
           </div>
-          <div class="btn btn-default col-xs-3 add-row">+ Add a condition</div><br/><br/><br/>
+          <div class="btn btn-default col-md-3 add-row">+ Add a condition</div><br/><br/><br/>
 
 
           <button type="submit" class="btn btn-default">Submit</button>
