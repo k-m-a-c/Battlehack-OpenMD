@@ -24,7 +24,7 @@ $app->get(
 
  	$nav_template
 
-    <div id="splash" class="container section">
+    <div id="splash" class="container">
         <div class="row">
             <img src="logo.png">
         </div>
@@ -42,8 +42,8 @@ $app->get(
         </div>
 
         <div class="btn-group buttons" role="group" aria-label="...">
-          <a href="patient_register"><button type="button" class="btn btn-primary btn-lg btn-group-lg">Patients</button></a>
-          <a href="doctor_register"><button type="button" class="btn btn-primary btn-lg btn-group-lg">Doctors</button></a>
+          <a href="patient_register"><button type="button" class="btn btn-primary btn-lg btn-group-lg">I'm a Patient!</button></a>
+          <a href="doctor_register"><button type="button" class="btn btn-primary btn-lg btn-group-lg">I'm a Doctor!</button></a>
         </div>
 
     </div>

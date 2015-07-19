@@ -1,5 +1,8 @@
 
 /*GLOBALS*/
+html {
+	height: 100% !important;
+}
 
 body {
 	height: 100%;
@@ -17,15 +20,13 @@ h2 {
 
 }
 
-/*SECTION*/
-.section {
+/*CONTAINER*/
+.container {
 	position: relative;
 	background-image: url(bg.jpg);
 	background-position: bottom center;
 	background-repeat: repeat-x;
 	overflow: hidden;
-	background-color: #222222;
-	color: #cccccc;
 }
 
 /*BUTTONS*/
