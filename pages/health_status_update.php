@@ -75,16 +75,14 @@ $app->get(
 
    <script>
     $(document).ready(function(){
-        $('#healthStatusUpdateForm').ajaxForm({
-          success: function(responseText) {
-            var resp = $.parseJSON( responseText );
-            if (resp.response && resp.response == "error") {
-              $('.alert-danger').text(resp.message).show();
-            } else {
-              location.href = "/patient/home";
-            }
-          }
-        });
+      
+      $('#healthStatusUpdateForm').ajaxForm(
+        resetForm: 'true',
+        success: function() {
+          alert("Patient Status submitted!");
+        }
+      );
+
     });
     </script>
 
