@@ -22,7 +22,7 @@ $app->post(
     $first_name = $data['first_name'];
     $last_name = $data['last_name'];
     $name = $first_name." ".$last_name;
-    $specialty = $data['specialty'];
+    $specialty = '';
     $city = $data['city'];
     $country = $data['country'];
     $location = $city.", ".$country;
