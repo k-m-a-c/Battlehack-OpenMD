@@ -111,14 +111,15 @@ $app->get(
                     $('.alert-danger').hide();
                     if ( resp.user_type == "patient" ){ 
                       $.get( "/api/check/patient/payed", function( resp ) {
-                          if ( resp == "0" ) {
+                          console.log('resp: ' + resp);
+                          //if ( resp == "0" ) {
                             $.get( "/get/braintree/token", function( data ) {
                               loadPayment(data);
                             });
-                          } else {
+                          /*} else {
                             console.log('redirect to main')
                             // redirect to main
-                          }
+                          }*/
                       });
                     } else {
                       console.log('redirect to main')

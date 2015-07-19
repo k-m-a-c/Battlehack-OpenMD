@@ -6,7 +6,11 @@ $app->get(
       $userId = $_SESSION['user_id'];
       foreach($db->query("SELECT * FROM patients WHERE id = '$userId'") as $row) {
         $didPay = $row['didPay'];
-        echo $didPay;
+        if ( !isset($didPay) ) {
+        	echo "0";
+        } else {
+        	echo $didPay;
+        }
       }
     }
   }
