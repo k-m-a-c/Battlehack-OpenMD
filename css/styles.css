@@ -66,3 +66,37 @@
 #login-page .paypal {
 	display: none; 
 }
+
+/* status report */
+#health-status-update .update-header {
+	background: #F9F9F9;
+	border-bottom: 1px solid #000;
+	margin-top: -20px;
+}
+
+#health-status-update .update-header h1 {
+	float: left;
+	margin-left: 10px;
+}
+
+#health-status-update .update-header a {
+	float: right;
+	display: block;
+	margin-top: 20px;
+}
+
+
+#health-status-update .chart-buttons {
+	  width: 640px;
+  margin-left: 30px;
+}
+
+#health-status-update .chart-buttons .btn {
+	  width: 27%;
+  margin: 0 2%;
+}
+
+#health-status-update #details {
+	margin-top: 46px;
+}
+
