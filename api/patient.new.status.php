@@ -1,5 +1,5 @@
 <?php
-$app->get(
+$app->post(
   '/patient/new/status', function() {
     require('connect.php');
     global $app;
@@ -17,9 +17,9 @@ $app->get(
     $additionalInfo = $data['additionalInfo'];
 
     $db->exec("INSERT INTO patients_status
-    (`physicalHealth`, `mentalHealth`, `bodyTemp`, `bloodPressure`, `heartRate`, `respiratoryRate`, `additionalInfo`)
+    (`patientId`, `physicalHealth`, `mentalHealth`, `bodyTemp`, `bloodPressure`, `heartRate`, `respiratoryRate`, `additionalInfo`)
     VALUES
-    ('$physicalHealth', '$mentalHealth', '$bodyTemp', '$bloodPressure', '$heartRate', '$respiratoryRate', '$additionalInfo')
+    ('$patientId', '$physicalHealth', '$mentalHealth', '$bodyTemp', '$bloodPressure', '$heartRate', '$respiratoryRate', '$additionalInfo')
     ");
   }
 );
