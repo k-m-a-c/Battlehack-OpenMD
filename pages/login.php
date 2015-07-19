@@ -27,14 +27,16 @@ $app->get(
     <div id="login-page" class="form-page container-fluid">
       <h1>Login</h1>
 
-      <div class="form-group col-md-12">
-        <label class="check-label">I am a </label>
-        <label class="radio-inline">
-          <input type="radio"  name="radio" class="radio" value="Patient" checked="checked"> Patient
-        </label>
-        <label class="radio-inline">
-          <input type="radio"  name="radio" class="radio" value="Doctor"> Doctor
-        </label>
+      <div class="row">
+        <div class="form-group col-md-12">
+          <label class="check-label">I am a </label>
+          <label class="radio-inline">
+            <input type="radio"  name="radio" class="radio" value="Patient" checked="checked"> Patient
+          </label>
+          <label class="radio-inline">
+            <input type="radio"  name="radio" class="radio" value="Doctor"> Doctor
+          </label>
+        </div>
       </div>
       
       <div id="patient-login">
@@ -78,6 +80,13 @@ $app->get(
           <button type="submit" class="btn btn-default">Login</button>
         </form>
       </div>
+
+      <div class="row">
+        <form id="checkout" method="post" action="/checkout">
+          <div id="payment-form"></div>
+          <input type="submit" value="Pay $20">
+        </form>
+      </div>
     </div>
 
    $footer_template
@@ -99,15 +108,24 @@ $app->get(
                   if (resp.response && resp.response == "error") {
                     $('.alert-danger').text(resp.message).show();
                   } else {
-                    console.log('login successful');
-                    $.getJSON( "/get/braintree/token", function( data ) {
-                      alert(data);
-                    });
+                    $('.alert-danger').hide();
+                    if ( resp.user_type == "patient" ){ 
+                      $.getJSON( "/get/braintree/token", function( data ) {
+                        loadPayment(data);
+                      });
+                    }
                   }
               }
             });
             // return false to prevent normal browser submit and page navigation
             return false;
+        }
+
+        function loadPayment(token) {
+          $('#checkout').show();
+          braintree.setup(token, "dropin", {
+              container: "payment-form"
+          });
         }
         
       });

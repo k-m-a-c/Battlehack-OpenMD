@@ -1,6 +1,8 @@
 <?php
 
 $header_template = <<<HTML
+		<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+
 	    <!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 

@@ -56,3 +56,7 @@
 #login-page .check-label {
 	margin-right: 10px;
 }
+
+#login-page #checkout {
+	display: none;
+}
