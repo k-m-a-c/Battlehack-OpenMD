@@ -84,6 +84,8 @@ $app->get(
                 var resp = $.parseJSON( responseText );
                 if (resp.response && resp.response == "error") {
                   $('.alert-danger').text(resp.message).show();
+                } else {
+                  location.href = "/patient/home";
                 }
             }
           });
