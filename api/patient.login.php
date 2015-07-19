@@ -17,7 +17,7 @@ $app->post(
       $db_password = $row['password'];
     }
 
-    f (!isset($db_email)) {
+    if (!isset($db_email)) {
       $response = array(
         "response"=>"error", "message"=>"email not in database."
       );
