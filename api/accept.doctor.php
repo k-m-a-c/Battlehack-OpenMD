@@ -8,7 +8,7 @@ $app->get(
     }
     if (isset($id)) {
       global $app;
-      $app->redirect('/patient/home');
+      $app->redirect('/patient/requests');
     }
     $db->exec("INSERT INTO accepted_doctors
     (`patientId`, `doctorId`)
@@ -17,7 +17,7 @@ $app->get(
     $db->exec("DELETE FROM doctorspatients WHERE patientId = '$patientId' AND doctorId = '$doctorId'");
 
     global $app;
-    $app->redirect('/patient/home');
+    $app->redirect('/patient/requests');
   }
 );
 ?>
