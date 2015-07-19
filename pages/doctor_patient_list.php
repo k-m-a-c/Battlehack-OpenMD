@@ -27,6 +27,9 @@ $app->get(
     <!-- TABBED NAV -->
     <div id="doctor-patient-list-nav" class="container-fluid">
       <h1>Your Patient List</h1>
+      <p>Click one of the tabs below to browse your existing patients, add new
+      patients, and respond to patient requests.</p>
+
       <ul class="nav nav-tabs inline-list" role="tablist" id="navList">
 
         <li class="nav-tab active">
