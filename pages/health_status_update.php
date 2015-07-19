@@ -29,7 +29,7 @@ $app->get(
 
       <div>
         <div class="alert alert-danger" role="alert"></div>
-        <form id="healthStatusUpdateForm" action="/api/new/patient" method="POST">
+        <form id="healthStatusUpdateForm" action="/patient/new/status" method="POST">
 
           <div class="form-group">
             <label for="rpPhysicalHealthScore">Physical Health Score</label>
