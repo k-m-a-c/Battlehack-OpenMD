@@ -97,18 +97,18 @@ $app->get(
    <script>
       //ajax form submit
       $(document).ready(function(){
-        $('#patientLoginForm').ajaxForm(
+        $('#patientLoginForm').ajaxForm({
           success: function(responseText)  {
-              submitHandler( response );
+              submitHandler( responseText );
               return false;
           }
-        );
-        $('#doctorLoginForm').ajaxForm(
+        });
+        $('#doctorLoginForm').ajaxForm({
           success: function(responseText)  {
-              submitHandler( response );
+              submitHandler( responseText );
               return false;
           }
-        );
+        }); 
 
         function submitHandler( response ) {
             // submit the form
@@ -135,9 +135,6 @@ $app->get(
                     location.href = location.origin + '/doctor/home';
                   }
                 }
-            }
-            // return false to prevent normal browser submit and page navigation
-            return false;
         }
 
         function loadPayment(token) {
