@@ -26,9 +26,41 @@ $app->get(
 
     <div id="login-page" class="form-page container-fluid">
       <h1>Login</h1>
-      <div>
+
+      <div class="form-group col-md-12">
+        <label class="check-label">I am a </label>
+        <label class="radio-inline">
+          <input type="radio"  name="radio" class="radio" value="Patient" checked="checked"> Patient
+        </label>
+        <label class="radio-inline">
+          <input type="radio"  name="radio" class="radio" value="Doctor"> Doctor
+        </label>
+      </div>
+      
+      <div id="patient-login">
         <div class="alert alert-danger" role="alert"></div>
-        <form id="patientLoginForm" action="/api/login/patient" method="POST">
+        <form id="patientRegisterForm" action="/api/login/patient" method="POST">
+          
+          <div class="row">
+            <div class="form-group col-md-12">
+              <label for="uName">Email</label>
+              <input type="text" class="form-control" id="uName" placeholder="" name="email">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-12">
+              <label for="pWord">Password</label>
+              <input type="text" class="form-control" id="pWord" placeholder="" name="password">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-default">Login</button>
+        </form>
+      </div>
+
+      <div id="doctor-login">
+        <div class="alert alert-danger" role="alert"></div>
+        <form id="doctorRegisterForm" action="/api/login/doctor" method="POST">
           
           <div class="row">
             <div class="form-group col-md-12">
@@ -71,6 +103,19 @@ $app->get(
             return false;
         });
       });
+
+    $(document).ready(function() {
+      $('.radio').on('change', function() {
+        var name = $(this).val();
+        if ( name == "Doctor" ) {
+          $('#patient-login').hide();
+          $('#doctor-login').show();
+        } else {
+          $('#patient-login').show();
+          $('#doctor-login').hide();
+        }
+      });
+    });
     </script>
 
   </body>
