@@ -31,7 +31,7 @@ $app->get('/patient/requests', function() {
   }
   $patientId = $_SESSION['user_id'];
 
-  $html .= "<table style='border: 1;'>";
+  $html = "<table style='border: 1;'>";
 
   foreach($db->query("SELECT * FROM doctors
   JOIN doctorspatients ON doctorspatients.doctorId = doctors.id
