@@ -97,7 +97,7 @@ $app->get(
         $(this).tab('show')
       });
 
-      $.getJSON( "/doctor/home", function( data ) {
+      $.getJSON( "api/doctor/home.json", function( data ) {
         var items = [];
         $.each( data, function( key, val ) {
           items.push( "<li id='" + key + "'>" + val + "</li>" );
