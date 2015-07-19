@@ -24,8 +24,8 @@ $app->get(
 
   $nav_template
 
-    <div id="patient-registers" class="form-page">
-      <h1 class="col-md-4">Create your Health Status Update</h1>
+    <div id="patient-creates-health-form" class="form-page">
+      <h1>Create your Health Status Update</h1>
 
       <div class="col-md-4">
         <form action="/api/new/patient" method="POST">
@@ -62,7 +62,7 @@ $app->get(
 
           <div class="form-group">
             <label for="rpAdditionalInformation">Additional Information</label>
-            <input type="number" class="form-control" id="rpAdditionalInformation" placeholder="Say more about how you're feeling today!">
+            <input type="text" class="form-control" id="rpAdditionalInformation" placeholder="Say more about how you're feeling today!">
           </div>
 
           <button type="submit" class="btn btn-default">Submit</button>
@@ -71,6 +71,27 @@ $app->get(
     </div>
 
    $footer_template
+
+   <script>
+    $(document).ready(function(){
+      $('#healthStatusUpdateForm').ajaxForm();
+
+      // attach handler to form's submit event
+      $('#healthStatusUpdateForm').submit(function() {
+          // submit the form
+          $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, form)  {
+                var resp = $.parseJSON( responseText );
+                if (resp.response && resp.response == "error") {
+                  $('.alert-danger').text(resp.message).show();
+                }
+            }
+          });
+          // return false to prevent normal browser submit and page navigation
+          return false;
+      });
+
+    });
+    </script>
 
   </body>
 </html>

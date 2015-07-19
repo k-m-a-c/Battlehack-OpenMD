@@ -181,8 +181,6 @@ $app->get(
             return false; 
         });
 
-      });
-
       //dynamic form elements
       $(document).ready(function(){
         $('.add-row').on('click',function(){

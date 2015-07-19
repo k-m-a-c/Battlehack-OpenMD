@@ -37,10 +37,15 @@ $app->get(
             <p>Sign Up!</p>
         </div>
 
+        <div class="row">
+          <p>$10 per month for patients, free for doctors.<p>
+        </div>
+
         <div class="btn-group buttons" role="group" aria-label="...">
           <a href="patient_register"><button type="button" class="btn btn-default btn-group-lg">Patients</button></a>
           <a href="doctor_register"><button type="button" class="btn btn-default btn-group-lg">Doctors</button></a>
         </div>
+
     </div>
 
    $footer_template
