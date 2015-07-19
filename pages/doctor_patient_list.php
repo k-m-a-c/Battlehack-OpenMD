@@ -49,19 +49,19 @@ $app->get(
       <div role="tabpanel" class="tab-pane fade active in" aria-labelled-by="yourPatients-tab" id="yourPatients">
 
         <ul class="your-patient-list" id="yourPatientList">
-          <li class="your-patient">Patient One<li>
+          <li class="your-patient">Your Patient One<li>
         </ul>
       </div>
 
       <div role="tabpanel" class="tab-pane fade in" id="addPatient" aria-labelled-by="addPatient-tab">
         <ul class="full-patient-list" id="fullPatientList">
-          <li class="add-patient">Patient One<li>
+          <li class="add-patient">The Actual Patient Number One<li>
         </ul>
       </div>
 
       <div role="tabpanel" class="tab-pane fade in" id="patientRequests" aria-labelled-by="patientRequests-tab">
         <ul class="patient-request-list" id="patientRequestList">
-          <li class="patient-request">Patient One<li>
+          <li class="patient-request">Patient Request One<li>
         </ul>
       </div>
     </div>
