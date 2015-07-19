@@ -75,7 +75,7 @@ $app->get(
 
    <script>
     $(document).ready(function(){
-      $('#healthStatusUpdateForm').ajaxForm();
+      //$('#healthStatusUpdateForm').ajaxForm();
       /*
       // attach handler to form's submit event
       $('#healthStatusUpdateForm').submit(function() {
