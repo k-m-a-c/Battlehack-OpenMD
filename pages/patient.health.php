@@ -6,6 +6,7 @@ $app->get(
   require('header.php');
 	require('nav.php');
 	require('footer.php');
+  $user_id = $_SESSION['user_id'];
 
   echo <<<HTML
 <!DOCTYPE html>
@@ -15,7 +16,7 @@ $app->get(
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Open MD | Home</title>
+    <title>Open MD | Your Health Status</title>
 
     $header_template
 
