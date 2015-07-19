@@ -24,17 +24,41 @@ $app->get(
 
   $nav_template
 
-    <div id="doctor-patient-list" class="container-fluid">
+    <!-- TABBED NAV -->
+    <div id="doctor-patient-list-nav" class="container-fluid">
       <h1>Your Patient List</h1>
       <ul class="nav nav-tabs inline-list">
-        <li class="active"><a href="#">Your Patients</a></li>
-        <li class="active"><a href="#">Add a Patient</a></li>
-        <li class="active"><a href="#">Patient Requests</a></li>
+        <li class="nav-tab active"><a href="#" role="tab" data-toggle="tab">Your Patients</a></li>
+
+        <li class="nav-tab active"><a href="#" role="tab" data-toggle="tab">Add a Patient</a></li>
+
+        <li class="nav-tabactive"><a href="#" role="tab" data-toggle="tab">Patient Requests</a></li>
       </ul>
+    </div>
+
+    <!-- TAB PANES -->
+    <div id="doctor-patient-list-panes" class="container-fluid">
+
+      <div role="tabpanel" class="tab-pane" id="yourPatients">
+        <p>All ze patients!</p>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="addPatient">
+        <p>Add a patient</p>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="patientRequests">
+        <p>Respond to patient requests</p>
+      </div>
     </div>
 
    $footer_template
 
+    <script>
+      $('#nav-tabs a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+      });
+
+    </script>
   </body>
 </html>
 HTML;
