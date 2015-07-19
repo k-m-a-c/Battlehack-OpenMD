@@ -1,4 +1,52 @@
 <?php
+$app->get('/doctor/home', function() {
+  require('header.php');
+  require('nav-internal.php');
+  require('footer.php');
+
+  echo <<<HTML
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <title>Open MD | Doctor Home</title>
+
+      $header_template
+
+    </head>
+   <body>
+
+    $nav_template
+
+    <div class="list"></div>
+
+    $footer_template
+    <script>
+    $(document).ready(function() {
+      $.get('/api/doctor/home', function(data) {
+        data = JSON.parse(data);
+        var html = "<table border='1'>";
+        $.each(data, function(i,d) {
+          html += "<tr>";
+            html += "<td><a href='"+d.patient_profile_link+"'>"+d.name+"</a></td>";
+            html += "<td>"+d.city+" "+d.country+"</td>";
+            html += "<td>"+d.healthcard+"</td>";
+            html += "<td><a href='"+d.request_patient_link+"'>Request Patient</a></td>";
+          html += "</tr>";
+        });
+        html += "</table>";
+        $('.list').html(html);
+      });
+    });
+    </script>
+    </body>
+  </html>
+HTML;
+});
+
 $app->get('api/doctor/home', function() {
   require('connect.php');
   if ($_SESSION['user_type'] != "doctor") {
@@ -19,6 +67,54 @@ $app->get('api/doctor/home', function() {
   }
 
   echo json_encode($data);
+});
+
+$app->get('/doctor/home', function() {
+  require('header.php');
+  require('nav-internal.php');
+  require('footer.php');
+
+  echo <<<HTML
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <title>Open MD | Doctor Home</title>
+
+      $header_template
+
+    </head>
+   <body>
+
+    $nav_template
+
+    <div class="list"></div>
+
+    $footer_template
+    <script>
+    $(document).ready(function() {
+      $.get('/api/doctor/home', function(data) {
+        data = JSON.parse(data);
+        var html = "<table border='1'>";
+        $.each(data, function(i,d) {
+          html += "<tr>";
+            html += "<td><a href='"+d.patient_profile_link+"'>"+d.name+"</a></td>";
+            html += "<td>"+d.city+" "+d.country+"</td>";
+            html += "<td>"+d.healthcard+"</td>";
+            html += "<td><a href='"+d.accept_patient_link+"'>Accept Patient</a></td>";
+          html += "</tr>";
+        });
+        html += "</table>";
+        $('.list').html(html);
+      });
+    });
+    </script>
+    </body>
+  </html>
+HTML;
 });
 
 $app->get('api/doctor/requests', function() {
