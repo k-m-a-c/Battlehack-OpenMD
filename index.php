@@ -22,6 +22,7 @@ require('pages/doctor_patient_list.php'); // The list of patients FOR doctors
 require('pages/patient_doctor_list.php'); // The list of doctors FOR patients
 require('pages/health_status_update.php');
 require('pages/admin.panel.php');
+require('pages/patient.health.php');
 
 require('api/doctor.register.php');
 require('api/doctor.login.php');
