@@ -58,11 +58,6 @@ $app->get(
 
       <div role="tabpanel" class="tab-pane fade active in" aria-labelled-by="yourDoctors-tab" id="yourDoctors">
 
-        <div>
-          if ($('#yourDoctors') == 0)
-
-        </div
-
         <div class="your-doctor inline-list" id="yourDoctor">
           <span>First Name</span>
           <span>Second Name</span>
