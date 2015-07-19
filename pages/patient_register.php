@@ -162,6 +162,7 @@ $app->get(
           <div class="btn btn-default col-md-3 add-row">+ Add a condition</div><br/><br/><br/>
 
 
+          <div class="alert alert-success" role="alert">Registration Successful</div>
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
       </div>
@@ -178,6 +179,12 @@ $app->get(
             console.log(resp);
             if (resp.response && resp.response == "error") {
               $('.alert-danger').text(resp.message).show();
+            } else {
+              $('.alert-danger').hide();
+              $('.alert-success').show();
+              setTimeout(function() {
+                location.href = "/login";
+              }, 2000);
             }
           }
         });
