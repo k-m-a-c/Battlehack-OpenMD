@@ -108,7 +108,7 @@ $app->get(
               submitHandler( responseText );
               return false;
           }
-        }); 
+        });
 
         function submitHandler( response ) {
             // submit the form
@@ -127,7 +127,7 @@ $app->get(
                         } else {
                           console.log('redirect to main')
                           // redirect to main patient page
-                          location.href = location.origin + '/api/patient/home';
+                          location.href = location.origin + '/patient/home';
                         }
                     });
                   } else {
