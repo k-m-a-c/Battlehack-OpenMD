@@ -37,7 +37,7 @@ $app->get('/api/patient/requests', function() {
       'doctor_profile_link' => "/doctor/u/".$row['id'],
       'location' => $row['location'],
       'hospital' => $row['hospital'],
-      'accept_doctor_link' => "/accept/doctor/".{$row['id']
+      'accept_doctor_link' => "/accept/doctor/".$row['id']
     );
     array_push($data,$d);
   }
