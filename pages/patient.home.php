@@ -48,6 +48,8 @@ HTML;
   }
 
   $html .= "</table>";
+
+  echo $html;
 });
 
 ?>
