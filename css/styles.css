@@ -63,6 +63,6 @@
 	margin-right: 10px;
 }
 
-#login-page #checkout {
-	display: none;
+#login-page .paypal {
+	display: none; 
 }

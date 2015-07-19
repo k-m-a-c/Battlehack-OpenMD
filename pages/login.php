@@ -84,8 +84,8 @@ $app->get(
       </div>
 
       <div class="row paypal">
-        <h3>Please submit a one one time paymet of $25 to use OpenMD</h3>
-        <form id="checkout" method="post" action="/checkout">
+        <h4>Please submit a one one time paymet of $25 to use OpenMD</h4>
+        <form id="checkout" method="post" action="/patient/home">
           <div id="payment-form"></div>
           <input class="btn btn-default" type="submit" value="Pay $25">
         </form>
