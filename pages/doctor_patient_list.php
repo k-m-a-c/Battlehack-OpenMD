@@ -1,7 +1,7 @@
 <?php
 $app->get(
 
-  '/doctor_register', function() {
+  '/doctor_patient_list', function() {
 
   require('header.php');
   require('nav.php');
@@ -24,32 +24,16 @@ $app->get(
 
   $nav_template
 
-    <div id="doctor-register" class="form-page container-fluid">
+    <div id="doctor-patient-list" class="container-fluid">
       <h1>Your Patient List</h1>
-
+      <ul class="nav nav-tabs inline-list">
+        <li class="active"><a href="#">Your Patients</a></li>
+        <li class="active"><a href="#">Add a Patient</a></li>
+        <li class="active"><a href="#">Patient Requests</a></li>
+      </ul>
     </div>
 
    $footer_template
-
-   <script>
-      //ajax form submit
-      $(document).ready(function(){
-        $('#doctorRegisterForm').ajaxForm();
-
-        // attach handler to form's submit event
-        $('#doctorRegisterForm').submit(function() {
-            // submit the form
-            $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, form)  {
-                  var resp = $.parseJSON( responseText );
-                  if (resp.response && resp.response == "error") {
-                    $('.alert-danger').text(resp.message).show();
-                  }
-              }
-            });
-            // return false to prevent normal browser submit and page navigation
-            return false;
-        });
-    </script>
 
   </body>
 </html>
