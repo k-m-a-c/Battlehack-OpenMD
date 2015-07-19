@@ -22,6 +22,9 @@ require('api/doctor.register.php');
 require('api/doctor.login.php');
 require('api/patient.register.php');
 
+require('api/acquire.bt.token.php');
+require('api/bt.pay.php');
+/*
 $app->get(
   '/testing', function() {
     require("BrainTree/Braintree.php");
@@ -72,6 +75,29 @@ $app->post(
         SET nonce='$nonce', didPay='1'
         WHERE id = '$patientId'");
     }
+  }
+);
+*/
+
+$app->get(
+  '/doctor_login', function() {
+    echo <<<HTML
+    <form action="/api/login/doctor" method="POST">
+      <input type="text" name="email">
+      <input type="password" name="password">
+      <input type="submit" value="Login">
+    </form>
+  }
+);
+
+$app->get(
+  '/patient_login', function() {
+    echo <<<HTML
+    <form action="/api/login/patient" method="POST">
+      <input type="text" name="email">
+      <input type="password" name="password">
+      <input type="submit" value="Login">
+    </form>
   }
 );
 

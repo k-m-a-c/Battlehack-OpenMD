@@ -11,6 +11,7 @@
       }
 
       $html = <<<HTML
+      <h1>Review Pending Doctors now!</h1>
       <table border="1">
       <tr>
         <td>Email</td>
