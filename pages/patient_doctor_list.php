@@ -120,7 +120,7 @@ $app->get(
       //get all doctor requests and append to #doctorRequests div
       $.getJSON( "api/patient/home", function( data ) {
         var items = [];
-        $.each( data, function( key, val ) {
+        $.each( data, function( key, val )) {
           items.push( "<li id='" + key + "'>""Doctor Profile Link: " + val.doctor_profile_link + "</li>" );
         });
 
