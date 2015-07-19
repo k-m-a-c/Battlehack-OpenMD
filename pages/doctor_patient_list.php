@@ -27,7 +27,7 @@ $app->get(
     <!-- TABBED NAV -->
     <div id="doctor-patient-list-nav" class="container-fluid">
       <h1>Your Patient List</h1>
-      <ul class="nav nav-tabs inline-list" id="patient-list">
+      <ul class="nav nav-tabs inline-list" role="tablist" id="patient-list">
         <li class="nav-tab active">
           <a href="#yourPatients" aria-controls="yourPatients" role="tab" data-toggle="tab" id="yourPatients-tab">Your Patients</a>
         </li>
