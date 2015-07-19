@@ -7,7 +7,11 @@ $app->get('/doctor/home', function() {
   }
   $html = "<a href='/logout'>Logout</a>";
   $html .= "<table style='border: 1;'>";
-  foreach($db->query("SELECT * FROM patients") as $row) {
+  foreach($db->query("SELECT patients.name, patients.city, patients.country, patients.healthcard, patients.id
+  FROM patients JOIN doctorspatients
+  ON patients.id = doctorspatients.patientId
+  JOIN doctors ON doctorspatients.doctorId != doctors.id
+  GROUP BY patients.id") as $row) {
     $html .= <<<HTML
     <tr>
       <td>{$row['name']}</td>
