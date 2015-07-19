@@ -31,6 +31,14 @@ require('api/logout.php');
 require('api/doctor.add.patient.php');
 require('pages/doctor.home.php');
 require('pages/display.patient.php');
+require('pages/patient.home.php');
+require('pages/display.doctor.php');
+
+require('api/accept.doctor.php');
+require('api/accept.patient.php');
+
+require('api/get.doctors.php');
+require('api/get.patients.php');
 
 require('api/patient.new.status.php');
 

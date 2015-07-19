@@ -22,4 +22,13 @@ HTML;
 
   echo $html;
 });
+
+$app->get('/doctor/requests', function() {
+  require('connect.php');
+  if ($_SESSION['user_type'] != "doctor") {
+    global $app;
+    $app->redirect('/');
+  }
+  $patientId = $_SESSION['user_id'];
+});
 ?>
