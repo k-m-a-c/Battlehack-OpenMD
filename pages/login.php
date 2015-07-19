@@ -39,7 +39,7 @@ $app->get(
       
       <div id="patient-login">
         <div class="alert alert-danger" role="alert"></div>
-        <form id="patientRegisterForm" action="/api/login/patient" method="POST">
+        <form id="patientLoginForm" action="/api/login/patient" method="POST">
           
           <div class="row">
             <div class="form-group col-md-12">
@@ -60,7 +60,7 @@ $app->get(
 
       <div id="doctor-login">
         <div class="alert alert-danger" role="alert"></div>
-        <form id="doctorRegisterForm" action="/api/login/doctor" method="POST">
+        <form id="doctorLoginForm" action="/api/login/doctor" method="POST">
           
           <div class="row">
             <div class="form-group col-md-12">
@@ -86,22 +86,30 @@ $app->get(
       //ajax form submit
       $(document).ready(function(){
         $('#patientLoginForm').ajaxForm();
+        $('#doctorLoginForm').ajaxForm();
 
         // attach handler to form's submit event
-        $('#patientLoginForm').submit(function() {
+        $('#patientLoginForm').submit(submitHandler);
+        $('#doctorLoginForm').submit(submitHandler);
+
+        function submitHandler() {
             // submit the form
             $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, form)  {
                   var resp = $.parseJSON( responseText );
                   if (resp.response && resp.response == "error") {
                     $('.alert-danger').text(resp.message).show();
                   } else {
-                    alert('login successful');
+                    console.log('login successful');
+                    $.getJSON( "/get/braintree/token", function( data ) {
+                      alert(data);
+                    });
                   }
               }
             });
             // return false to prevent normal browser submit and page navigation
             return false;
-        });
+        }
+        
       });
 
     $(document).ready(function() {
