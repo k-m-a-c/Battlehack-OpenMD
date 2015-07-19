@@ -28,11 +28,17 @@ $app->get(
     <div id="doctor-patient-list-nav" class="container-fluid">
       <h1>Your Patient List</h1>
       <ul class="nav nav-tabs inline-list">
-        <li class="nav-tab active"><a href="#yourPatients" aria-controls="yourPatients" role="tab" data-toggle="tab" id="yourPatients-tab">Your Patients</a></li>
+        <li class="nav-tab active">
+          <a href="#yourPatients" aria-controls="yourPatients" role="tab" data-toggle="tab" id="yourPatients-tab">Your Patients</a>
+        </li>
 
-        <li class="nav-tab"><a href="#addPatient" aria-controls="addPatient" role="tab" data-toggle="tab" id="addPatient-tab">Add a Patient</a></li>
+        <li class="nav-tab">
+          <a href="#addPatient" aria-controls="addPatient" role="tab" data-toggle="tab" id="addPatient-tab">Add a Patient</a>
+        </li>
 
-        <li class="nav-tab"><a href="#patientRequests" aria-controls="patientRequests" role="tab" data-toggle="tab" id="patientRequests-tab">Patient Requests</a></li>
+        <li class="nav-tab">
+          <a href="#patientRequests" aria-controls="patientRequests" role="tab" data-toggle="tab" id="patientRequests-tab">Patient Requests</a>
+        </li>
       </ul>
     </div>
 
@@ -57,6 +63,10 @@ $app->get(
         e.preventDefault()
         $(this).tab('show')
       });
+
+      $('#myTabs li:eq(0) a').tab('show') // Select first tab (0-indexed)
+      $('#myTabs li:eq(1) a').tab('show') // Select second tab (0-indexed)
+      $('#myTabs li:eq(2) a').tab('show') // Select third tab (0-indexed)
 
     </script>
   </body>
