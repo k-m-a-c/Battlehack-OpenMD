@@ -75,6 +75,7 @@ $app->get(
 
    <script>
     $(document).ready(function(){
+      
       $('#healthStatusUpdateForm').ajaxForm(
         resetForm: 'true',
         success: function() {

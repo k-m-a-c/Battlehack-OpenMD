@@ -26,19 +26,16 @@ $app->get(
 
     <div id="splash" class="container">
         <div class="row">
-            <img src="logo.png">
+            <img class="logo" src="logo.png">
         </div>
 
         <div class="row">
-            <h2>The best possible care requires having the best possible information</h2>
+            <h2>Patient: Get better care</h2>
+            <h2>Doctor: I get access to real-time patient</h2>
         </div>
 
         <div class="row">
-            <p>Sign Up!</p>
-        </div>
-
-        <div class="row">
-          <p>$25 one-time fee for patients, free for doctors.<p>
+          <h3>$25 one-time fee for patients, free for doctors.</h3>
         </div>
 
         <div class="btn-group buttons" role="group" aria-label="...">

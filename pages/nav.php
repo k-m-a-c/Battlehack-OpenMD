@@ -10,6 +10,7 @@ $nav_template = <<<HTML
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      <img src="brand-icon.png">
       <a class="navbar-brand" href="#">OpenMD</a>
     </div>
 

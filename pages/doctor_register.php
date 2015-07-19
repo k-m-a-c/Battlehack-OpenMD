@@ -32,13 +32,7 @@ $app->get(
       <div>
         <div class="alert alert-danger" role="alert"></div>
         <form id="doctorRegistrationForm" action="/api/new/doctor" method="POST" enctype="multipart/form-data">
-          <div class="row">
-            <div class="form-group col-md-4">
-              <label for="exampleInputFile">Profile Photo</label>
-              <input type="file" id="exampleInputFile" name="photo">
-              <p class="help-block">Upload a photo of yourself here</p>
-            </div>
-          </div>
+          
           <div class="row">
             <div class="form-group col-xs-6">
               <label for="rpName">First Name</label>
@@ -93,23 +87,22 @@ $app->get(
    $footer_template
 
    <script>
+
       //ajax form submit
       $(document).ready(function(){
-        $('#doctorRegisterForm').ajaxForm();
-
-        // attach handler to form's submit event
-        $('#doctorRegisterForm').submit(function() {
-            // submit the form
-            $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, form)  {
-                  var resp = $.parseJSON( responseText );
-                  if (resp.response && resp.response == "error") {
-                    $('.alert-danger').text(resp.message).show();
-                  }
-              }
-            });
-            // return false to prevent normal browser submit and page navigation
-            return false;
+        $('#doctorRegistrationForm').ajaxForm({
+          success: function(responseText)  {
+                var resp = $.parseJSON( responseText );
+                if (resp.response && resp.response == "error") {
+                  $('.alert-danger').text(resp.message).show();
+                } else {
+                  location.href = "doctor_thank_you";
+                }
+                return false;
+            } 
         });
+      });
+      
     </script>
 
   </body>
