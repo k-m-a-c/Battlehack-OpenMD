@@ -10,7 +10,7 @@ $app->post(
 
     $files = $_FILES['photo'];
 		$name = uniqid('img-'.date('Ymd').'-'.$files['name']);
-		if (move_uploaded_file($files['tmp_name'], 'images/' . $name) === true) {
+		if (move_uploaded_file($files['tmp_name'], 'photos/' . $name) === true) {
 		  $photo = 'photos/' . $name;
     }
 
