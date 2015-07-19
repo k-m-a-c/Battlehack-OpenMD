@@ -187,6 +187,7 @@ $app->get(
             // return false to prevent normal browser submit and page navigation 
             return false; 
         });
+      });
 
       //dynamic form elements
       $(document).ready(function(){
