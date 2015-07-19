@@ -28,7 +28,7 @@ h3 {
 /*CONTAINER*/
 .container {
 	position: relative;
-	background-image: url(bg.jpg);
+	background-image: url(/bg.jpg);
 	background-position: bottom center;
 	background-repeat: repeat-x;
 	overflow: hidden;
@@ -55,6 +55,13 @@ h3 {
 	padding-top: 5rem;
 }
 
+.brand-img{
+	margin-top: 1.25rem;
+	position: absolute;
+}
+
+
+
 /* NAV */
 .navbar .patient-home, .navbar .doctor-home {
 	display: none;
@@ -67,6 +74,11 @@ h3 {
 .navbar-header {
 	border-width: 0rem;
 
+}
+
+.navbar-brand {
+	position: absolute;
+	left: 3rem;
 }
 
 
