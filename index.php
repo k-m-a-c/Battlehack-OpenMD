@@ -25,6 +25,9 @@ require('api/doctor.register.php');
 require('api/doctor.login.php');
 require('api/patient.register.php');
 require('api/patient.login.php');
+require('api/logout.php');
+
+require('api/doctor.add.patient.php');
 
 require('api/patient.new.status.php');
 
@@ -32,28 +35,27 @@ require('api/check.bt.token.php');
 require('api/acquire.bt.token.php');
 require('api/bt.pay.php');
 
-$app->get(
-  '/doctor_login', function() {
-    echo <<<HTML
-    <form action="/api/login/doctor" method="POST">
-      <input type="text" name="email">
-      <input type="password" name="password">
-      <input type="submit" value="Login">
-    </form>
+$app->get('/doctor/home', function() {
+  require('connect.php');
+  if ($_SESSION['user_type'] != "doctor") {
+    global $app;
+    $app->redirect('/');
+  }
+  $html = "<a href='/logout'>Logout</a>";
+  $html .= "<table style='border: 1;'>";
+  foreach($db->query("SELECT * FROM patients") as $row) {
+    $html .= <<<HTML
+    <tr>
+      <td>{$row['name']}</td>
+      <td>{$row['city']}, {$row['country']}</td>
+      <td>{$row['healthcard']}</td>
+      <td><a href="/api/doctor/add/patient/{$row['id']}">Add Patient</a></td>
+    </tr>
 HTML;
   }
-);
+  $html .= "</table>";
 
-$app->get(
-  '/patient_login', function() {
-    echo <<<HTML
-    <form action="/api/login/patient" method="POST">
-      <input type="text" name="email">
-      <input type="password" name="password">
-      <input type="submit" value="Login">
-    </form>
-HTML;
-  }
-);
+  echo $html;
+});
 
 $app->run();
