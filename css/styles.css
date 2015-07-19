@@ -12,10 +12,8 @@ body {
 	line-height: 28px;
 	background-color: #ffffff;
 	color: #777777;
-	background-image: url(/bg.jpg);
 	background-position: bottom center;
 	background-repeat: repeat-x;
-	overflow: hidden;
 }
 
 h2 {
