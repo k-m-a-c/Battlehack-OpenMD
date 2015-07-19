@@ -162,7 +162,7 @@ $app->get(
           <div class="btn btn-default col-md-3 add-row">+ Add a condition</div><br/><br/><br/>
 
 
-          <div class="alert alert-success" role="alert">Registration Successful</div>
+          <div class="alert alert-success col-md-3" role="alert">Registration Successful</div>
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
       </div>
