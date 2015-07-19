@@ -11,7 +11,7 @@ $app->get('/doctor/home', function() {
   foreach($db->query("SELECT * FROM patients") as $row) {
     $html .= <<<HTML
     <tr>
-      <td><a href="/patient/{$row['id']}">{$row['name']}</a></td>
+      <td><a href="/patient/u/{$row['id']}">{$row['name']}</a></td>
       <td>{$row['city']}, {$row['country']}</td>
       <td>{$row['healthcard']}</td>
       <td><a href="/api/doctor/add/patient/{$row['id']}">Add Patient</a></td>

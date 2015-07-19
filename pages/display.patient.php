@@ -1,6 +1,6 @@
 <?php
 $app->get(
-  '/patient/:patientId', function($patientId) {
+  '/patient/u/:patientId', function($patientId) {
     require('connect.php');
     if ($_SESSION['user_type'] != "doctor") {
       global $app;

@@ -122,7 +122,7 @@ $app->get(
                           } else {
                             console.log('redirect to main')
                             // redirect to main patient page
-                            location.href = location.origin + '/patient/u/home';
+                            location.href = location.origin + '/patient/home';
                           }
                       });
                     } else {
