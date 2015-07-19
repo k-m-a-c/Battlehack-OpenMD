@@ -1,5 +1,6 @@
 <?php
 $app->get('/patient/health/:patientId', function($patientId) {
+  require('connect.php');
   $data = array();
   foreach($db->query("SELECT * FROM patient_status
   WHERE patientId = '$patientId'") as $row) {
