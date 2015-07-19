@@ -74,25 +74,15 @@ $app->get(
    $footer_template
 
    <script>
-    /*$(document).ready(function(){
-      $('#healthStatusUpdateForm').ajaxForm();
-      // attach handler to form's submit event
-      $('#healthStatusUpdateForm').submit(function() {
-          // submit the form
-          $(this).ajaxSubmit({ 'success': function(responseText, statusText, xhr, form)  {
-                var resp = $.parseJSON( responseText );
-                if (resp.response && resp.response == "error") {
-                  $('.alert-danger').text(resp.message).show();
-                } else {
-                  location.href = "/patient/home";
-                }
-            }
-          });
-          // return false to prevent normal browser submit and page navigation
-          return false;
-      });
+    $(document).ready(function(){
+      $('#healthStatusUpdateForm').ajaxForm(
+        resetForm: 'true',
+        success: function() {
+          alert("Patient Status submitted!");
+        }
+      );
 
-    });*/
+    });
     </script>
 
   </body>

@@ -144,4 +144,31 @@ $app->get('/api/doctor/requests', function() {
 
   echo json_encode($data);
 });
+
+$app->get('/api/doctor/my/patients', function() {
+  require('connect.php');
+  if ($_SESSION['user_type'] != "doctor") {
+    global $app;
+    $app->redirect('/');
+  }
+  $doctorId = $_SESSION['user_id'];
+
+  $data = array();
+
+  foreach($db->query("SELECT * FROM patients
+  JOIN accepted_patients ON patients.id = accepted_patients.patientId
+  WHERE accepted_patients.doctorId = '$doctorId'
+  GROUP BY patients.id") as $row) {
+    $d = array(
+      "patient_profile_link" => '/patient/u/'.$row['id'],
+      'name' => $row['name'],
+      'city' => $row['city'],
+      'country' => $row['country'],
+      'healthcard' => $row['healthcard'],
+    );
+    array_push($data,$d);
+  }
+
+  echo json_encode($data);
+});
 ?>

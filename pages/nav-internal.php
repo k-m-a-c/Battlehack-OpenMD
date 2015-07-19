@@ -1,5 +1,27 @@
 <?php
 $userType = $_SESSION['user_type'];
+if ($userType == "doctor") {
+  $links = <<<HTML
+  <div class="$userType doctor-link collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/doctor_patient_list">Patient List</a></li>
+    </ul>
+  </div>
+HTML;
+} else {
+  $links = <<<HTML
+  <div class="$userType patient-link collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/patient_health">Patient Health</a></li>
+    </ul>
+  </div>
+  <div class="$userType patient-link collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/patient_doctor_list">Doctor List</a></li>
+    </ul>
+  </div>
+HTML;
+}
 $nav_template = <<<HTML
 
 <nav class="navbar navbar-default">
@@ -15,17 +37,7 @@ $nav_template = <<<HTML
       <a class="navbar-brand" href="#">OpenMD</a>
     </div>
 
-    <div class="$userType doctor-link collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/doctor_patient_list">Patient List</a></li>
-      </ul>
-    </div>
-
-    <div class="$userType patient-link collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/patient_health">Patient Health</a></li>
-      </ul>
-    </div>
+    $links
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-3">
