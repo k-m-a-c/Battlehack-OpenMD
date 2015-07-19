@@ -17,13 +17,13 @@ $nav_template = <<<HTML
 
     <div class="$userType doctor-link collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="doctor_patient_list">Home</a></li>
+        <li><a href="/doctor_patient_list">Patient List</a></li>
       </ul>
     </div>
 
     <div class="$userType patient-link collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="patient_health">Home</a></li>
+        <li><a href="/patient_health">Patient Health</a></li>
       </ul>
     </div>
 
