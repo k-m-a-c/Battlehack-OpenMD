@@ -44,7 +44,7 @@ $app->get(
     </div>
 
     <!-- TAB PANES -->
-    <div id="doctor-patient-list-panes" class="container-fluid">
+    <div id="doctor-patient-list-panes" class="container-fluid tab-content">
 
       <div role="tabpanel" class="tab-pane fade active in" aria-labelled-by="yourPatients-tab" id="yourPatients">
 
