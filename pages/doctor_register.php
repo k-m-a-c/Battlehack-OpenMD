@@ -96,7 +96,7 @@ $app->get(
                 if (resp.response && resp.response == "error") {
                   $('.alert-danger').text(resp.message).show();
                 } else {
-                  location.href = "thank_you";
+                  location.href = "doctor_thank_you";
                 }
                 return false;
             } 
