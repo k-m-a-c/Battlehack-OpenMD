@@ -28,7 +28,7 @@ $app->get(
       <h1>Login</h1>
       <div>
         <div class="alert alert-danger" role="alert"></div>
-        <form id="patientLoginForm" action="/api/new/patient" method="POST">
+        <form id="patientLoginForm" action="/api/login/patient" method="POST">
           
           <div class="row">
             <div class="form-group col-md-12">
