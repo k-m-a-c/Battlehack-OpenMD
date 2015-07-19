@@ -1,5 +1,5 @@
 <?php
-$app->get('/patient/home', function() {
+$app->get('/patient/u/home', function() {
   require('connect.php');
   if ($_SESSION['user_type'] != "patient") {
     echo $_SESSION['user_type'];
