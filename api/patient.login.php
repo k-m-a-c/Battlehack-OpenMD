@@ -17,6 +17,14 @@ $app->post(
       $db_password = $row['password'];
     }
 
+    if (!isset($db_email)) {
+      $response = array(
+        "response"=>"error", "message"=>"email not in database."
+      );
+      echo json_encode($response);
+      exit;
+    }
+
     if ($email != $db_email) {
       $response = array(
         "response"=>"error", "message"=>"emails do not match."

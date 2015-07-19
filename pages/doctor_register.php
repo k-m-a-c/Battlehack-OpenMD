@@ -31,7 +31,7 @@ $app->get(
 
       <div>
         <div class="alert alert-danger" role="alert"></div>
-        <form id="doctorRegistrationForm" action="/api/new/doctor" method="POST">
+        <form id="doctorRegistrationForm" action="/api/new/doctor" method="POST" enctype="multipart/form-data">
           <div class="row">
             <div class="form-group col-md-4">
               <label for="exampleInputFile">Profile Photo</label>
@@ -66,7 +66,7 @@ $app->get(
             </div>
             <div class="form-group col-xs-6">
               <label for="rpCSPONumber">CSPO #</label>
-              <input type="text" class="form-control" id="rpCSPONumber" placeholder="Add your CSPO # here" name="cspo">
+              <input type="text" class="form-control" id="rpCSPONumber" placeholder="Add your CPSO # here" name="cpso">
             </div>
           </div>
           <div class="row">

@@ -8,11 +8,13 @@ $app->post(
 
     $photo = "";
 
+    /*
     $files = $_FILES['photo'];
 		$name = uniqid('img-'.date('Ymd').'-'.$files['name']);
-		if (move_uploaded_file($files['tmp_name'], 'images/' . $name) === true) {
-		  $photo = 'photos/' . $name;
+		if (move_uploaded_file($files['tmp_name'], '/photos/' . $name) === true) {
+		  $photo = '/photos/' . $name;
     }
+    */
 
     $email = $data['email'];
     $password = $data['password'];
@@ -20,7 +22,7 @@ $app->post(
     $first_name = $data['first_name'];
     $last_name = $data['last_name'];
     $name = $first_name." ".$last_name;
-    $specialty = $data['specialty'];
+    $specialty = '';
     $city = $data['city'];
     $country = $data['country'];
     $location = $city.", ".$country;
@@ -71,7 +73,7 @@ $app->post(
     ('$photo', '$email', '$password', '$name', '$specialty', '$location', '$cpso', '$hospital')");
 
     $response = array(
-      "response"=>"success", "message"=>"email: ".$email." registered."
+      "response"=>"success", "message"=>"email: ".$email." registered.", "email"=>$email
     );
     echo json_encode($response);
     exit;
