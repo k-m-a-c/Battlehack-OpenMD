@@ -32,13 +32,7 @@ $app->get(
       <div>
         <div class="alert alert-danger" role="alert"></div>
         <form id="doctorRegistrationForm" action="/api/new/doctor" method="POST" enctype="multipart/form-data">
-          <div class="row">
-            <div class="form-group col-md-4">
-              <label for="exampleInputFile">Profile Photo</label>
-              <input type="file" id="exampleInputFile" name="photo">
-              <p class="help-block">Upload a photo of yourself here</p>
-            </div>
-          </div>
+          
           <div class="row">
             <div class="form-group col-xs-6">
               <label for="rpName">First Name</label>
@@ -96,7 +90,7 @@ $app->get(
 
       //ajax form submit
       $(document).ready(function(){
-        $('#patientRegisterForm').ajaxForm({
+        $('#doctorRegistrationForm').ajaxForm({
           success: function(responseText)  {
                 var resp = $.parseJSON( responseText );
                 if (resp.response && resp.response == "error") {
